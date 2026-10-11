@@ -6,10 +6,11 @@ Landing page de **Debra Technology**: duchas y lavaojos de emergencia (norma ANS
 
 | Archivo | Versión | Estado |
 |---|---|---|
-| `index.html` | Fondo blanco | Versión principal (se indexa en Google) |
-| `index-oscuro.html` | Fondo gris oscuro | Alternativa para elegir (`noindex`, bloqueada en `robots.txt`) |
+| `index.html` | Fondo blanco | **Elegida** (11/10/2026). Versión principal, se indexa en Google |
+| `index-oscuro.html` | Fondo gris oscuro | En reserva: se puede pasar a principal más adelante (`noindex`, bloqueada en `robots.txt`) |
 
-Cuando se elija una, la elegida debe quedar como `index.html`. Si se elige la oscura, reemplazar
+Todo cambio de contenido se aplica en las dos versiones, para que la oscura siga lista para usar.
+Si más adelante se elige la oscura, debe quedar como `index.html`. Si se elige la oscura, reemplazar
 `index.html` por su contenido y cambiar su meta `robots` a `index, follow, max-image-preview:large`.
 
 ## Estructura
