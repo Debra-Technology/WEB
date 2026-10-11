@@ -43,9 +43,8 @@ Fuentes: Barlow y Barlow Condensed desde Google Fonts.
 
 ## Pendientes
 
-- [ ] **Envío del formulario**: conectar `action="/api/contacto"` a un endpoint real (servidor propio,
-      Formspree, Resend, etc.). Validar también del lado del servidor y sumar Turnstile o reCAPTCHA.
-- [ ] **Texto de ejemplo del mensaje**: reemplazar `Por ejemplo: [ ], [ ], [ ].` en el `placeholder` de `#f-msg`.
+- [ ] **Envío del formulario**: el código ya envía a Google Apps Script (guarda en planilla y avisa por mail).
+      Falta instalar el script (`03-web/formulario` del proyecto) y pegar la URL en `FORM_ENDPOINT` de los dos `index`.
 - [ ] **Imagen para compartir** (vista previa de links): subir `assets/og-debra-1200x630.jpg` (1200 × 630 px)
       y actualizar la ruta de `og:image`.
 - [ ] **Logo en SVG** o PNG de alta resolución (el actual es de 218 × 104 px).

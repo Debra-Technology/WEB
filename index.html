@@ -1591,21 +1591,22 @@ body { background: #fff; }
         <h2 class="h-sec ct5-title" id="contact-title">Escribinos</h2>
         <p class="ct5-lead">Envianos el mensaje con tu consulta y te contactamos.</p>
       </div>
-      <!-- action: conectar al endpoint real del servidor -->
-      <form class="ct5-form" id="contact-form" action="/api/contacto" method="post" novalidate>
+      <!-- El envío lo hace el script (ver FORM_ENDPOINT): guarda la consulta en la planilla de Google y avisa por mail -->
+      <form class="ct5-form" id="contact-form" action="#contacto" method="post" novalidate>
         <div class="ct5-row">
           <div class="ct5-field"><input id="f-name" name="nombre" type="text" autocomplete="name" required maxlength="80" placeholder=" " aria-describedby="e-name"><label for="f-name">Nombre <span class="req" aria-hidden="true">*</span></label><span class="ct5-err" id="e-name" aria-live="polite"></span></div>
           <div class="ct5-field"><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" placeholder=" " aria-describedby="e-email"><label for="f-email">E-mail <span class="req" aria-hidden="true">*</span></label><span class="ct5-err" id="e-email" aria-live="polite"></span></div>
           <div class="ct5-field"><input id="f-company" name="empresa" type="text" autocomplete="organization" maxlength="120" placeholder=" " aria-describedby="e-company"><label for="f-company">Nombre de tu empresa</label><span class="ct5-err" id="e-company" aria-live="polite"></span></div>
         </div>
         <div class="ct5-field ct5-msg">
-          <textarea id="f-msg" name="mensaje" required minlength="10" maxlength="5000" placeholder="Por ejemplo: [ ], [ ], [ ]." aria-describedby="e-msg"></textarea>
+          <textarea id="f-msg" name="mensaje" required minlength="10" maxlength="5000" placeholder="Por ejemplo: qué equipo necesitás, cuántos, dónde se instala y para cuándo." aria-describedby="e-msg"></textarea>
           <label for="f-msg">Mensaje <span class="req" aria-hidden="true">*</span></label>
           <span class="ct5-count" id="f-count">0 / 5.000</span>
           <span class="ct5-err" id="e-msg" aria-live="polite"></span>
         </div>
         <div class="hp" aria-hidden="true"><label for="f-web">Sitio web</label><input id="f-web" name="sitio_web" type="text" tabindex="-1" autocomplete="off"></div>
         <input type="hidden" name="t0" id="f-t0">
+        <input type="hidden" name="producto" id="f-producto">
         <p class="ct5-status" id="form-status" role="status" hidden></p>
         <div class="ct5-foot">
           <button class="ct5-send" type="submit">Enviar<svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
@@ -1874,12 +1875,15 @@ body { background: #fff; }
   /* ---------- "Cotizar" completa el formulario con el producto ---------- */
   const form = $("#contact-form"), msg = $("#f-msg");
   $$("[data-cotizar]").forEach((b) => b.addEventListener("click", () => {
-    msg.value = "Hola, quiero cotizar el modelo " + b.dataset.cotizar + ". "; msg.dispatchEvent(new Event("input")); const cot = document.querySelector('input[name="motivo"][value="Cotización"]'); if (cot) cot.checked = true;
+    msg.value = "Hola, quiero cotizar el modelo " + b.dataset.cotizar + ". "; msg.dispatchEvent(new Event("input")); $("#f-producto").value = b.dataset.cotizar;
     $("#contacto").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     setTimeout(() => $("#f-name").focus({ preventScroll: true }), reduceMotion ? 0 : 600);
   }));
 
-  /* ---------- Formulario: validación accesible + anti-spam ---------- */
+  /* ---------- Formulario: validación accesible + anti-spam + envío ---------- */
+  // URL de la aplicación web de Google Apps Script (03-web/formulario/consultas-web.gs). Vacía = formulario sin conectar.
+  const FORM_ENDPOINT = "";
+  const FALLBACK = 'Probá de nuevo o escribinos por <a href="https://wa.me/5491176771408">WhatsApp</a>.';
   $("#f-t0").value = Date.now();
   const rules = {
     "f-name": (v) => v.trim().length < 2 ? "Escribí tu nombre." : "",
@@ -1899,26 +1903,31 @@ body { background: #fff; }
     el.addEventListener("input", () => { if (el.getAttribute("aria-invalid") === "true") check(id); });
   });
   const status = $("#form-status");
-  const say = (text, isError) => { status.hidden = false; status.textContent = text; status.classList.toggle("error", !!isError); };
+  const say = (text, isError, html) => { status.hidden = false; status[html ? "innerHTML" : "textContent"] = text; status.classList.toggle("error", !!isError); };
+  const done = () => {
+    say("¡Gracias! Recibimos tu consulta y te vamos a contactar a la brevedad.");
+    form.reset(); $("#f-t0").value = Date.now(); $("#f-producto").value = "";
+    Object.keys(rules).forEach((id) => $("#" + id).removeAttribute("aria-invalid"));
+  };
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const bad = Object.keys(rules).filter((id) => !check(id));
     if (bad.length) { $("#" + bad[0]).focus(); say("Revisá los campos marcados para poder enviar la consulta.", true); return; }
     // Anti-spam: si el campo trampa tiene contenido o se envió en menos de 3 s, se descarta en silencio
-    if ($("#f-web").value || Date.now() - +$("#f-t0").value < 3000) { say("¡Gracias! Recibimos tu consulta y te vamos a contactar a la brevedad."); form.reset(); return; }
+    if ($("#f-web").value || Date.now() - +$("#f-t0").value < 3000) { done(); return; }
+    if (!FORM_ENDPOINT) { say("El formulario todavía no está conectado. " + FALLBACK, true, true); return; }
     const btn = $('button[type="submit"]', form);
-    btn.disabled = true;
+    btn.disabled = true; say("Enviando…");
     try {
-      // En producción: enviar al endpoint del servidor (que además valida y aplica Turnstile/reCAPTCHA).
-      if (location.hostname.endsWith("debratechnology.com")) {
-        const r = await fetch(form.action, { method: "POST", body: new FormData(form) });
-        if (!r.ok) throw new Error(r.status);
-      }
-      say("¡Gracias! Recibimos tu consulta y te vamos a contactar a la brevedad.");
-      form.reset(); $("#f-t0").value = Date.now();
-      Object.keys(rules).forEach((id) => $("#" + id).removeAttribute("aria-invalid"));
+      const data = new URLSearchParams(new FormData(form));
+      data.set("pagina", location.href.split("#")[0]);
+      // Formato simple (sin cabeceras propias) para que Google lo acepte desde otro dominio
+      const r = await fetch(FORM_ENDPOINT, { method: "POST", body: data });
+      const j = await r.json();
+      if (!j.ok) throw new Error(j.error || "error");
+      done();
     } catch {
-      say("No pudimos enviar el mensaje. Probá de nuevo o escribinos a info@debra.com.ar.", true);
+      say("No pudimos enviar el mensaje. " + FALLBACK, true, true);
     } finally { btn.disabled = false; }
   });
 
