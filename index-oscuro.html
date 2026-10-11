@@ -620,6 +620,26 @@ body { background: #fff; }
 }
 
 
+/* ---------- Servicios: acordeón (se abre el que tiene el cursor o el que se toca) ---------- */
+.d-acc { display: grid; gap: .6rem; }
+.d-it { display: grid; grid-template-columns: 44px minmax(0, 1fr) 18px; gap: 1rem; align-items: center; padding: .9rem 1rem; border: 1px solid var(--rule); border-radius: 12px; background: #fff; cursor: pointer; transition: background .35s, border-color .35s, box-shadow .35s; }
+.d-it:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.d-ic { width: 40px; height: 40px; fill: none; stroke: url(#amberGrad); stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; transition: transform .35s; }
+.d-it h3 { margin: 0; font-family: var(--f-head); font-weight: 700; font-size: 1.2rem; line-height: 1.15; text-transform: uppercase; letter-spacing: .05em; color: var(--ink); }
+.d-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.2,.8,.2,1); }
+.d-more > p { overflow: hidden; margin: 0; color: #6A6258; font-size: .95rem; line-height: 1.45; padding-top: 0; transition: padding .4s; }
+.d-tel { color: #8A4A10; font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--yellow); white-space: nowrap; }
+.d-tel:hover { color: var(--ink); }
+.d-it.on { background: linear-gradient(135deg, #FFF9F0, #F8EEDD); border-color: rgba(217,115,26,.4); box-shadow: 0 14px 26px -20px rgba(150,90,20,.55); }
+.d-it.on .d-more { grid-template-rows: 1fr; }
+.d-it.on .d-more > p { padding-top: .3rem; }
+.d-it.on .d-ic { transform: scale(1.15); }
+.d-plus { width: 14px; height: 14px; position: relative; }
+.d-plus::before, .d-plus::after { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: #D9731A; border-radius: 2px; transition: transform .35s; }
+.d-plus::after { transform: rotate(90deg); }
+.d-it.on .d-plus::after { transform: rotate(0); }
+@media (prefers-reduced-motion: reduce) { .d-it, .d-more, .d-more > p, .d-ic, .d-plus::after { transition: none; } }
+
 /* ---------- Servicios (recorrido vertical) + best-sellers, lado a lado ---------- */
 .offer-e { background: #fff; padding: clamp(3.5rem, 7vw, 5rem) 0 clamp(2.25rem, 4.5vw, 3rem); }
 .offer-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3rem; align-items: stretch; }
@@ -1172,6 +1192,12 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
 .e-line::before { background: linear-gradient(180deg, #F2A12B, #464B51); }
 .e-st h3 { color: var(--dk-head); }
 .e-st p { color: var(--dk-muted); }
+.d-it { background: var(--dk-card); border-color: #464B51; }
+.d-it h3 { color: var(--dk-head); }
+.d-more > p { color: var(--dk-muted); }
+.d-tel { color: var(--dk-gold); }
+.d-tel:hover { color: var(--dk-head); }
+.d-it.on { background: linear-gradient(135deg, #3A3530, #33302C); border-color: rgba(242,161,43,.45); box-shadow: 0 14px 26px -20px rgba(0,0,0,.8); }
 .prod { background: var(--dk-card); border-color: var(--dk-line); }
 .prod-img { background: #202225; }
 .prod h3 { color: var(--dk-head); }
@@ -1569,11 +1595,11 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
           <div><p class="overline on-light">Qué hacemos</p><h2 class="h-sec" id="serv-title">Nuestros servicios</h2></div>
         </div>
         <p class="svc-divider"><span>Calidad garantizada</span></p>
-        <ol class="e-line" aria-labelledby="serv-title">
-            <li class="e-st"><span class="e-node"><svg class="e-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 43h42"/><path d="M6 43V23l9 5.5V23l9 5.5V23l9 5.5V9h8v34"/><path d="M33 15h8"/><path d="M11 36h5M20 36h5M29 36h4"/></svg></span><div><h3>Fabricación de duchas y lavaojos</h3><p>Diseños adaptados a las especificaciones técnicas de cada proyecto.</p></div></li>
-            <li class="e-st"><span class="e-node"><svg class="e-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M9 27v-3a15 15 0 0 1 30 0v3"/><path d="M8 26h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2z"/><path d="M40 26h-5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2z"/><path d="M37.5 38v.5a6.5 6.5 0 0 1-6.5 6.5h-3.5"/><rect x="21" y="42.5" width="7" height="5" rx="2.5"/></svg></span><div><h3>Servicio post‑venta</h3></div></li>
-            <li class="e-st"><span class="e-node"><svg class="e-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M8.5 32a15.5 15.5 0 0 1 31 0"/><path d="M19 18v-6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6"/><path d="M14 21.5v6M34 21.5v6"/><path d="M5 32h38a2 2 0 0 1 2 2v.5a3.5 3.5 0 0 1-3.5 3.5h-35A3.5 3.5 0 0 1 3 34.5V34a2 2 0 0 1 2-2z"/></svg></span><div><h3>Elementos de seguridad</h3><p>Para entornos industriales de riesgo.</p></div></li>
-        </ol>
+        <div class="d-acc" role="list" aria-labelledby="serv-title">
+            <div class="d-it on" role="listitem" tabindex="0" aria-expanded="true"><svg class="d-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 43h42"/><path d="M6 43V23l9 5.5V23l9 5.5V23l9 5.5V9h8v34"/><path d="M33 15h8"/><path d="M11 36h5M20 36h5M29 36h4"/></svg><div class="d-body"><h3>Fabricación de duchas y lavaojos</h3><div class="d-more"><p>Diseños adaptados a las especificaciones técnicas de cada proyecto.</p></div></div><span class="d-plus" aria-hidden="true"></span></div>
+            <div class="d-it" role="listitem" tabindex="0" aria-expanded="false"><svg class="d-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M9 27v-3a15 15 0 0 1 30 0v3"/><path d="M8 26h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2z"/><path d="M40 26h-5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2z"/><path d="M37.5 38v.5a6.5 6.5 0 0 1-6.5 6.5h-3.5"/><rect x="21" y="42.5" width="7" height="5" rx="2.5"/></svg><div class="d-body"><h3>Servicio post‑venta</h3><div class="d-more"><p>Teléfono de post-venta: <a class="d-tel" href="tel:+5491121222096">+54 9 11 2122-2096</a></p></div></div><span class="d-plus" aria-hidden="true"></span></div>
+            <div class="d-it" role="listitem" tabindex="0" aria-expanded="false"><svg class="d-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M8.5 32a15.5 15.5 0 0 1 31 0"/><path d="M19 18v-6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6"/><path d="M14 21.5v6M34 21.5v6"/><path d="M5 32h38a2 2 0 0 1 2 2v.5a3.5 3.5 0 0 1-3.5 3.5h-35A3.5 3.5 0 0 1 3 34.5V34a2 2 0 0 1 2-2z"/></svg><div class="d-body"><h3>Elementos de seguridad</h3><div class="d-more"><p>Para entornos industriales de riesgo.</p></div></div><span class="d-plus" aria-hidden="true"></span></div>
+        </div>
       </div>
       <div class="prod-col" id="productos">
         <div class="sec-head">
@@ -2044,16 +2070,17 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
   });
 
 
-  /* ---------- Servicios: la línea une exactamente el primer y el último nodo ---------- */
+  /* ---------- Servicios: acordeón, se abre el que tiene el cursor, el foco o el toque ---------- */
   (function () {
-    const list = $(".e-line"); if (!list) return;
-    const place = () => {
-      const nodes = $$(".e-node", list); if (nodes.length < 2) return;
-      const L = list.getBoundingClientRect(), a = nodes[0].getBoundingClientRect(), b = nodes[nodes.length - 1].getBoundingClientRect();
-      list.style.setProperty("--lt", (a.top + a.height / 2 - L.top) + "px");
-      list.style.setProperty("--lh", (b.top + b.height / 2 - (a.top + a.height / 2)) + "px");
-    };
-    new ResizeObserver(place).observe(list); place();
+    const acc = $(".d-acc"); if (!acc) return;
+    const its = $$(".d-it", acc);
+    const open = (it) => its.forEach((x) => { x.classList.toggle("on", x === it); x.setAttribute("aria-expanded", String(x === it)); });
+    its.forEach((it) => {
+      it.addEventListener("mouseenter", () => open(it));
+      it.addEventListener("click", () => open(it));
+      it.addEventListener("focusin", () => open(it));
+      it.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(it); } });
+    });
   })();
 
 
