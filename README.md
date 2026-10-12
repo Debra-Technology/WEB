@@ -19,6 +19,10 @@ Si más adelante se elige la oscura, debe quedar como `index.html`. Si se elige 
 index.html            Versión blanca (HTML + CSS + JS en un solo archivo)
 index-oscuro.html     Versión gris oscuro
 assets/img/           Fotos de portada, productos, franja de datos y logos (WebP / PNG)
+assets/img/productos/ Fotos del catálogo (las mismas de la web actual, en WebP)
+assets/fichas/        Fichas técnicas PDF (copia de las de la web actual)
+assets/css/, js/      Estilos y código de las páginas de productos
+productos/            Catálogo (index.html) y una carpeta por producto (48)
 robots.txt            Reglas para buscadores
 sitemap.xml           Mapa del sitio
 ```
@@ -41,6 +45,15 @@ Fuentes: Barlow y Barlow Condensed desde Google Fonts.
   solo se carga si se aceptan las cookies de analítica y en el dominio `debratechnology.com`.
 - Formulario con validación, contador de 5.000 caracteres y anti-spam (campo trampa + tiempo mínimo).
 
+## Páginas de productos
+
+Las genera `03-web/productos-web/build_paginas_productos.py` (proyecto Debra, fuera de este repo) a partir
+del texto final de los 48 productos (`Productos-web-version-final.docx`). **No editar a mano**: se corrige el
+texto en la fuente y se vuelve a correr el script. Copia los estilos de `index.html` a `assets/css/sitio.css`
+para que cabecera y pie sean iguales, y regenera `sitemap.xml`.
+Lo marcado «a confirmar por fábrica» no se publica hasta que fábrica responda.
+"Cotizar" en una página de producto lleva al formulario de la portada con el producto ya escrito (`?cotizar=`).
+
 ## Pendientes
 
 - [ ] **Envío del formulario**: el código ya envía a Google Apps Script (guarda en planilla y avisa por mail).
@@ -51,5 +64,6 @@ Fuentes: Barlow y Barlow Condensed desde Google Fonts.
 - [ ] **Páginas legales**: `/politica-de-privacidad/` y `/terminos-y-condiciones/`.
 - [ ] **Página 404** personalizada.
 - [ ] **Servidor**: forzar HTTPS (redirección 301 de http a https) y cabeceras de seguridad.
-- [ ] **Links de productos**: hoy apuntan al catálogo actual (`/productos/`); actualizar cuando existan
-      las páginas de cada modelo.
+- [ ] **Productos**: fotos nuevas (hoy son las de la web actual; las mangueras Armtex y Ryljet no tienen foto),
+      fichas PDF corregidas y datos que faltan confirmar con fábrica.
+- [ ] **Redirecciones** de las direcciones viejas de WordPress a las nuevas `/productos/...` (en el servidor).
