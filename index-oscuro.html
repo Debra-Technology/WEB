@@ -1381,6 +1381,7 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
   .wa-float svg { width: 28px; height: 28px; }
 }
 </style>
+<link rel="stylesheet" href="assets/css/escribinos.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -1797,6 +1798,33 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
 <a class="wa-float" href="https://wa.me/5491176771408?text=%C2%A1Hola%21%20Me%20comunico%20desde%20la%20web..." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp (se abre en una pestaña nueva)">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.2A12.7 12.7 0 0 0 5.1 22.5L3.3 28.8l6.5-1.7A12.7 12.7 0 1 0 16 3.2zm0 23.2c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.2-.4a10.5 10.5 0 1 1 9 4.9zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.8 5.1 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span class="wa-tip" aria-hidden="true">Escribinos por WhatsApp</span>
 </a>
+<!-- escribinos: la completa build_paginas_productos.py -->
+<section class="ct-panel" id="ct-panel" role="dialog" aria-labelledby="ct-title" hidden>
+  <div class="ct-head">
+    <button class="ct-bar" type="button" aria-expanded="true" aria-controls="ct-body">
+      <svg aria-hidden="true"><use href="#i-mail"/></svg>
+      <span><b id="ct-title">Escribinos</b><small id="ct-sub">Contanos qué necesitás y te contactamos.</small></span>
+    </button>
+    <button class="ct-ic ct-min" type="button" aria-label="Minimizar"><svg aria-hidden="true" viewBox="0 0 24 24"><path class="ct-min-a" d="M6 14l6-6 6 6"/><path class="ct-min-b" d="M6 10l6 6 6-6"/></svg></button>
+    <button class="ct-ic ct-x" type="button" aria-label="Cerrar"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="ct-body" id="ct-body">
+  <form class="ct-form" id="ct-form" novalidate>
+    <div class="ct-prod" id="ct-prod" hidden><span>Consulta por</span><ul></ul></div>
+    <div class="ct-f"><label for="ct-name">Nombre <span aria-hidden="true">*</span></label><input id="ct-name" name="nombre" type="text" autocomplete="name" required maxlength="80" aria-describedby="ct-e-name"><span class="ct-err" id="ct-e-name"></span></div>
+    <div class="ct-f"><label for="ct-email">E-mail <span aria-hidden="true">*</span></label><input id="ct-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="ct-e-email"><span class="ct-err" id="ct-e-email"></span></div>
+    <div class="ct-f"><label for="ct-company">Empresa</label><input id="ct-company" name="empresa" type="text" autocomplete="organization" maxlength="120" aria-describedby="ct-e-company"><span class="ct-err" id="ct-e-company"></span></div>
+    <div class="ct-f"><label for="ct-msg">Mensaje <span aria-hidden="true">*</span></label><textarea id="ct-msg" name="mensaje" required minlength="10" maxlength="5000" rows="4" placeholder="Qué equipo necesitás, cuántos y dónde se instala." aria-describedby="ct-e-msg"></textarea><span class="ct-err" id="ct-e-msg"></span></div>
+    <div class="hp" aria-hidden="true"><label for="ct-web">Sitio web</label><input id="ct-web" name="sitio_web" type="text" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="t0" id="ct-t0">
+    <input type="hidden" name="producto" id="ct-producto">
+    <p class="ct-status" id="ct-status" role="status" hidden></p>
+    <button class="btn btn-yellow ct-send" type="submit">Enviar<svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <p class="ct-legal">Podés minimizar esta ventana y seguir mirando los productos: lo que escribiste queda guardado. Al enviar aceptás nuestra <a href="/politica-de-privacidad/">política de privacidad</a>.</p>
+  </form>
+  </div>
+</section>
+<!-- /escribinos -->
 <section class="cookie" id="cookie-banner" aria-labelledby="cookie-title" hidden>
   <h2 id="cookie-title">Usamos cookies</h2>
   <p>Las necesarias hacen funcionar el sitio. Las de analítica nos ayudan a mejorarlo y solo se activan si las aceptás. <a href="/politica-de-privacidad/">Política de privacidad</a></p>
@@ -2022,6 +2050,8 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
   /* ---------- "Cotizar" completa el formulario con el producto ---------- */
   const form = $("#contact-form"), msg = $("#f-msg");
   $$("[data-cotizar]").forEach((b) => b.addEventListener("click", () => {
+    // si viene con un mensaje empezado en otra página (ventana Escribinos), el producto se suma a ese mensaje
+    const esc = window.debraEscribinos; if (esc && esc.activo()) { esc.abrir(b.dataset.cotizar, b); return; }
     msg.value = "Hola, quiero cotizar el modelo " + b.dataset.cotizar + ". "; msg.dispatchEvent(new Event("input")); $("#f-producto").value = b.dataset.cotizar;
     $("#contacto").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     setTimeout(() => $("#f-name").focus({ preventScroll: true }), reduceMotion ? 0 : 600);
@@ -2142,5 +2172,6 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
   const stored = read(); if (stored) applyConsent(stored); else banner.hidden = false;
 })();
 </script>
+<script src="assets/js/escribinos.js" defer></script>
 </body>
 </html>
