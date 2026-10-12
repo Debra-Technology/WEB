@@ -246,5 +246,6 @@
     else if (options.hidden) openConfig(); else decide(box.checked);
   });
   $("#open-cookies").addEventListener("click", openConfig);
+  $$("[data-cookies]").forEach((b) => b.addEventListener("click", openConfig));
   const stored = read(); if (stored) applyConsent(stored); else banner.hidden = false;
 })();
