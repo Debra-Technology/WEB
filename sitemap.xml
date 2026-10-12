@@ -73,6 +73,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://debratechnology.com/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://debratechnology.com/productos/l11e-lavaojos-epoxi/</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -116,30 +140,6 @@
   </url>
   <url>
     <loc>https://debratechnology.com/productos/lp11x-lp11e-lavaojos-de-pared/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -529,6 +529,78 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://debratechnology.com/en/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/zh/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/ja/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/en/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/zh/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/ja/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/en/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/zh/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/ja/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/en/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/zh/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debratechnology.com/ja/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://debratechnology.com/en/productos/l11e-lavaojos-epoxi/</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -668,78 +740,6 @@
   </url>
   <url>
     <loc>https://debratechnology.com/ja/productos/lp11x-lp11e-lavaojos-de-pared/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/en/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/zh/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/ja/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/en/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/zh/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/ja/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/en/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/zh/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/ja/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/en/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/zh/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://debratechnology.com/ja/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
