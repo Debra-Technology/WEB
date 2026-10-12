@@ -9,14 +9,22 @@
   const onScroll = () => header.classList.toggle("is-solid", window.scrollY > 40);
   window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
+  /* ---------- Selector de idioma: se cierra al tocar afuera o con Esc ---------- */
+  $$("details.lang").forEach((d) => {
+    document.addEventListener("click", (e) => { if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && d.open) { d.open = false; d.querySelector("summary").focus(); } });
+  });
+
   /* ---------- Catálogo: buscador, familias y orden (sin JS se ve todo y las familias llevan a cada sección) ---------- */
   (function () {
     const q = $("#cat-q"); if (!q) return;
     const links = $$(".cat-fams [data-f]"), sel = $("#cat-sel"), orden = $("#cat-orden");
     const fams = $$(".cat-fam"), cards = $$(".cat-fam .dc"), status = $("#cat-status"), empty = $("#cat-empty");
     const total = cards.length;
-    cards.forEach((c, i) => { c._i = i; c._t = c.querySelector(".dc-title").textContent.trim(); });
     const norm = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+    cards.forEach((c, i) => { c._i = i; c._t = c.querySelector(".dc-title").textContent.trim(); });
+    // se busca en el texto en español (data-s) y en lo que se ve en la tarjeta (sirve para las páginas traducidas)
+    cards.forEach((c) => { c._s = c.dataset.s + " " + norm(c.querySelector(".dc-info").textContent); });
     let fam = "";
 
     function aplicar() {
@@ -26,7 +34,7 @@
         const enFam = !fam || s.dataset.fam === fam;
         let k = 0;
         $$(".dc", s).forEach((c) => {
-          const ok = enFam && palabras.every((p) => c.dataset.s.includes(p));
+          const ok = enFam && palabras.every((p) => c._s.includes(p));
           c.hidden = !ok; if (ok) k++;
         });
         s.hidden = k === 0; n += k;

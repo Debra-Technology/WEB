@@ -1173,3 +1173,24 @@ body { background: #fff; }
   .wa-float { width: 50px; height: 50px; right: .9rem; bottom: calc(.9rem + env(safe-area-inset-bottom, 0px)); }
   .wa-float svg { width: 28px; height: 28px; }
 }
+/* ---------- Selector de idioma (al lado del menú, se ve en todas las pantallas) ---------- */
+.lang { position: relative; }
+.lang summary { list-style: none; display: inline-flex; align-items: center; gap: .35rem; min-height: 40px; padding: 0 .7rem; border: 1px solid var(--rule); border-radius: 999px; cursor: pointer; font-weight: 700; font-size: .8rem; letter-spacing: .06em; color: var(--ink); background: #fff; user-select: none; }
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: ""; width: 6px; height: 6px; margin-left: .1rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.lang summary .ic { width: 18px; height: 18px; }
+.lang summary:hover { border-color: var(--yellow); }
+.lang[open] summary { border-color: var(--ink); }
+.lang ul { position: absolute; z-index: 80; right: 0; top: calc(100% + .4rem); min-width: 160px; margin: 0; padding: .35rem; list-style: none; background: #fff; border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 16px 34px -14px rgba(0,0,0,.35); }
+.lang .flag { width: 22px; height: 15px; flex-shrink: 0; border-radius: 2px; overflow: hidden; }
+.lang ul a { display: flex; align-items: center; gap: .6rem; padding: .55rem .75rem; border-radius: 6px; text-decoration: none; font-size: .95rem; color: var(--ink); }
+.lang ul a:hover { background: #F6F1E8; }
+.lang ul a[aria-current="true"] { font-weight: 700; background: #F4F5F6; }
+@media (max-width: 700px) { .lang summary { min-height: 38px; padding: 0 .6rem; } }
+
+/* ---------- Chino y japonés: letras del sistema (Barlow no las tiene) ---------- */
+:lang(zh) body, :lang(zh) .h-sec, :lang(zh) h1, :lang(zh) h2, :lang(zh) h3 { font-family: "Barlow", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif; }
+:lang(ja) body, :lang(ja) .h-sec, :lang(ja) h1, :lang(ja) h2, :lang(ja) h3 { font-family: "Barlow", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans JP", sans-serif; }
+:lang(zh) body, :lang(ja) body { line-break: strict; word-break: normal; }
+:lang(zh) *, :lang(ja) * { letter-spacing: 0 !important; }
+:lang(zh) :is(h1, h2, h3), :lang(ja) :is(h1, h2, h3) { line-height: 1.25 !important; }   /* el espaciado de los títulos separa de más los caracteres */
