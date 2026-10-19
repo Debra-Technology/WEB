@@ -201,3 +201,9 @@
 .doc-legal a { color: var(--ink); text-decoration-color: var(--yellow); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .doc-aviso { margin-top: 1.2rem; padding: .9rem 1rem; background: #F4F5F6; border-left: 4px solid var(--ink); border-radius: 4px; font-size: .92rem; }
 .doc-btn { display: inline; padding: 0; border: 0; background: none; font: inherit; font-weight: 600; color: var(--ink); cursor: pointer; text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* Fotos mejoradas con fondo de planta desenfocada (19 oct 2026): la foto llena el recuadro */
+.dc-media:has(img.con-fondo) { aspect-ratio: 4 / 5; }
+.dc-media img.con-fondo { inset: 0; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: normal; }
+.pp-photo img.con-fondo { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (hover: none) { .dc-media img.con-fondo { aspect-ratio: 4 / 5; padding: 0; } }
