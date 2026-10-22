@@ -10,7 +10,7 @@
   (function () {
     const panel = $("#ct-panel"); if (!panel) return;
     // Se toma de index.html al generar las páginas (build_paginas_productos.py). Vacío = formulario sin conectar.
-    const FORM_ENDPOINT = "";
+    const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbyH_Ds6_7WyeImyydY69AL7UI3udwwtfwVX97PmX-ryd_ZWw5pGJMipYSEUYUAZzMn-ug/exec";
     const FALLBACK = 'Please try again or contact us on <a href="https://wa.me/5491176771408" target="_blank" rel="noopener">WhatsApp</a>.';
     const KEY = "debra-borrador-v1";
     const form = $("#ct-form"), msg = $("#ct-msg"), prodBox = $("#ct-prod"), status = $("#ct-status");
