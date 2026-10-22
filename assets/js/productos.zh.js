@@ -102,6 +102,7 @@
       sel.value = fam;
       status.textContent = `显示 ${n} / ${total} 件产品`;
       empty.hidden = n > 0;
+      $(".cat-main").classList.toggle("sin-resultados", !n);   // con el cartel no hace falta «¿No encontrás lo que buscás?»
       if (!n) {
         const txt = q.value.trim();
         $("#ce-q").textContent = txt ? "«" + txt + "»" : "该产品";

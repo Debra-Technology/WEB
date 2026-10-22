@@ -230,6 +230,7 @@
 .ce-links .ce-wa { display: inline-flex; color: #25D366; }
 .ce-wa svg { width: 28px; height: 28px; fill: currentColor; }
 .ce-wa:hover { color: #1DA851; }
+.sin-resultados .cat-cta { display: none !important; }
 
 /* Celular y pantallas táctiles: la foto queda limpia y Ficha técnica + Cotizar van debajo del nombre */
 @media (hover: none), (max-width: 900px) {
