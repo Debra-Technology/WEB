@@ -56,8 +56,8 @@ Lo marcado «a confirmar por fábrica» no se publica hasta que fábrica respond
 
 ## Pendientes
 
-- [ ] **Envío del formulario**: el código ya envía a Google Apps Script (guarda en planilla y avisa por mail).
-      Falta instalar el script (`03-web/formulario` del proyecto) y pegar la URL en `FORM_ENDPOINT` de los dos `index`.
+- [x] **Envío del formulario**: envía a Google Apps Script (guarda en planilla y avisa por mail).
+      Copia de respaldo del script y guía de instalación en `_formulario/`; la URL está en `FORM_ENDPOINT` de los dos `index`.
 - [ ] **Imagen para compartir** (vista previa de links): subir `assets/og-debra-1200x630.jpg` (1200 × 630 px)
       y actualizar la ruta de `og:image`.
 - [ ] **Logo en SVG** o PNG de alta resolución (el actual es de 218 × 104 px).
