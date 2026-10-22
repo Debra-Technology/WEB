@@ -47,7 +47,7 @@
     };
     function opciones(p) {
       const r = raiz(p), o = new Set([p, r]);
-      Object.keys(SINONIMOS).forEach((k) => { if (r.startsWith(k) && r.length - k.length <= 2 || k.startsWith(r) && r.length >= 4) SINONIMOS[k].forEach((s) => o.add(s)); });
+      Object.keys(SINONIMOS).forEach((k) => { if (r.startsWith(k) && r.length - k.length <= 2 || k.startsWith(r) && r.length >= 5 && k.length - r.length <= 3) SINONIMOS[k].forEach((s) => o.add(s)); });
       return [...o];
     }
     // Errores de tipeo: «dicha», «lavajos», «calefacionada»
@@ -69,14 +69,18 @@
     // se busca en el texto en español (data-s) y en lo que se ve en la tarjeta (sirve para las páginas traducidas)
     cards.forEach((c) => {
       c._s = norm(c.dataset.s + " " + c.querySelector(".dc-info").textContent);
-      c._w = [...new Set(c._s.split(/[^a-z0-9]+/).filter((w) => w.length >= 4).map(raiz))];
+      c._p = [...new Set(c._s.split(/[^a-z0-9]+/).filter(Boolean))];
+      c._w = [...new Set(c._p.filter((w) => w.length >= 4).map(raiz))];
     });
+    // Una palabra coincide si es una palabra de la tarjeta o su comienzo (cortito solo si le faltan pocas letras),
+    // un sinónimo, o la misma palabra con un error de tipeo. Así «perro» o «auto» no traen productos que no tienen nada que ver.
     function coincide(c, p) {
-      const o = opciones(p);
-      if (o.some((x) => c._s.includes(x))) return true;
-      const r = raiz(p); if (r.length < 4) return false;
-      const max = r.length <= 5 ? 1 : 2;
-      return c._w.some((w) => cerca(r, w, max) || w.length > r.length && cerca(r, w.slice(0, r.length), max));
+      if (/\d/.test(p)) return c._s.includes(p);          // códigos y medidas: tal cual
+      const empieza = (x) => c._p.some((w) => w.startsWith(x) && (x.length >= 5 || w.length - x.length <= 2));
+      if (opciones(p).some(empieza)) return true;
+      const r = raiz(p); if (r.length < 5) return false;
+      const max = r.length <= 7 ? 1 : 2;
+      return c._w.some((w) => w[0] === r[0] && cerca(r, w, max));
     }
 
     let fam = "", mat = "";
