@@ -101,8 +101,6 @@
       if (!n) {
         const txt = q.value.trim();
         $("#ce-q").textContent = txt ? "«" + txt + "»" : "その製品";
-        const wa = $("#ce-wa"), u = new URL(wa.href);
-        u.search = txt ? "?text=" + encodeURIComponent("こんにちは。探している製品：" + txt + ".") : ""; wa.href = u;
       }
     }
     function irArriba() {

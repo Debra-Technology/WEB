@@ -101,8 +101,6 @@
       if (!n) {
         const txt = q.value.trim();
         $("#ce-q").textContent = txt ? "«" + txt + "»" : "that product";
-        const wa = $("#ce-wa"), u = new URL(wa.href);
-        u.search = txt ? "?text=" + encodeURIComponent("Hello, I'm looking for: " + txt + ".") : ""; wa.href = u;
       }
     }
     function irArriba() {

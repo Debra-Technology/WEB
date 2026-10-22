@@ -101,8 +101,6 @@
       if (!n) {
         const txt = q.value.trim();
         $("#ce-q").textContent = txt ? "«" + txt + "»" : "该产品";
-        const wa = $("#ce-wa"), u = new URL(wa.href);
-        u.search = txt ? "?text=" + encodeURIComponent("您好，我在寻找：" + txt + ".") : ""; wa.href = u;
       }
     }
     function irArriba() {
