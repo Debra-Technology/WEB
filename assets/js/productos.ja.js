@@ -101,10 +101,8 @@
       if (!n) {
         const txt = q.value.trim();
         $("#ce-q").textContent = txt ? "«" + txt + "»" : "その製品";
-        const m = $("#ce-msg");
-        if (!m.dataset.tocado) m.value = txt ? "こんにちは。探している製品：" + txt + ". " : "";
-        $("#ce-prod").value = txt.slice(0, 300);
-        if (!$("#ce-t0").value) $("#ce-t0").value = Date.now();
+        const wa = $("#ce-wa"), u = new URL(wa.href);
+        u.search = txt ? "?text=" + encodeURIComponent("こんにちは。探している製品：" + txt + ".") : ""; wa.href = u;
       }
     }
     function irArriba() {
@@ -123,7 +121,6 @@
     // al buscar se busca en todas las familias
     q.addEventListener("input", () => { if (fam && q.value) { fam = ""; history.replaceState(null, "", location.pathname + location.search); } aplicar(); });
     q.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); q.blur(); irArriba(); } });
-    $("#cat-clear").addEventListener("click", () => { q.value = ""; mat = ""; elegir("", true); q.focus(); });
     orden.addEventListener("change", () => {
       const az = orden.value === "az";
       $$(".dc-grid", $(".cat-main")).forEach((g) => {
@@ -133,28 +130,13 @@
     elegir(location.hash.slice(1), false);
     window.addEventListener("hashchange", () => elegir(location.hash.slice(1), false));
 
-    /* Formulario de «no contamos con ese producto» (va a la misma planilla que el resto) */
-    const f = $("#ce-form"); if (!f) return;
-    const st = $("#ce-status");
-    const say = (t, err) => { st.hidden = false; st.textContent = t; st.classList.toggle("error", !!err); };
-    $("#ce-msg").addEventListener("input", (e) => { e.target.dataset.tocado = "1"; });
-    f.addEventListener("submit", async (e) => {
+    /* «Contactanos» abre la ventana Escribinos con lo que buscaba (si no está, va al formulario de la portada) */
+    $("#ce-contacto").addEventListener("click", (e) => {
+      const esc = window.debraEscribinos, msg = $("#ct-msg"); if (!esc || !msg) return;
       e.preventDefault();
-      const d = new FormData(f);
-      if (String(d.get("nombre")).trim().length < 2) return say("お名前を入力してください。", true);
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.get("email")).trim())) return say("メールアドレスをご確認ください（例：nombre@empresa.com）。", true);
-      if (String(d.get("mensaje")).trim().length < 10) return say("もう少し詳しくご記入ください（10文字以上）。", true);
-      if (d.get("sitio_web") || Date.now() - +d.get("t0") < 3000) return say("ありがとうございます。お問い合わせを受け付けました。追って担当者よりご連絡いたします。");
-      const btn = $('button[type="submit"]', f); btn.disabled = true; say("送信中…");
-      try {
-        const data = new URLSearchParams(d); data.set("pagina", location.href.split("#")[0] + " （検索結果なし）");
-        const j = await (await fetch(f.dataset.endpoint, { method: "POST", body: data })).json();
-        if (!j.ok) throw new Error();
-        say("ありがとうございます。お問い合わせを受け付けました。追って担当者よりご連絡いたします。");
-        f.reset(); delete $("#ce-msg").dataset.tocado;
-      } catch {
-        say("メッセージを送信できませんでした。もう一度お試しいただくか、WhatsApp でお問い合わせください。", true);
-      } finally { btn.disabled = false; }
+      const txt = q.value.trim();
+      if (txt && !msg.value.trim()) { msg.value = "こんにちは。探している製品：" + txt + ". "; msg.dispatchEvent(new Event("input", { bubbles: true })); }
+      esc.abrir("", e.currentTarget);
     });
   })();
 

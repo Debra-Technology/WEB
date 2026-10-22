@@ -101,10 +101,8 @@
       if (!n) {
         const txt = q.value.trim();
         $("#ce-q").textContent = txt ? "«" + txt + "»" : "that product";
-        const m = $("#ce-msg");
-        if (!m.dataset.tocado) m.value = txt ? "Hello, I'm looking for: " + txt + ". " : "";
-        $("#ce-prod").value = txt.slice(0, 300);
-        if (!$("#ce-t0").value) $("#ce-t0").value = Date.now();
+        const wa = $("#ce-wa"), u = new URL(wa.href);
+        u.search = txt ? "?text=" + encodeURIComponent("Hello, I'm looking for: " + txt + ".") : ""; wa.href = u;
       }
     }
     function irArriba() {
@@ -123,7 +121,6 @@
     // al buscar se busca en todas las familias
     q.addEventListener("input", () => { if (fam && q.value) { fam = ""; history.replaceState(null, "", location.pathname + location.search); } aplicar(); });
     q.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); q.blur(); irArriba(); } });
-    $("#cat-clear").addEventListener("click", () => { q.value = ""; mat = ""; elegir("", true); q.focus(); });
     orden.addEventListener("change", () => {
       const az = orden.value === "az";
       $$(".dc-grid", $(".cat-main")).forEach((g) => {
@@ -133,28 +130,13 @@
     elegir(location.hash.slice(1), false);
     window.addEventListener("hashchange", () => elegir(location.hash.slice(1), false));
 
-    /* Formulario de «no contamos con ese producto» (va a la misma planilla que el resto) */
-    const f = $("#ce-form"); if (!f) return;
-    const st = $("#ce-status");
-    const say = (t, err) => { st.hidden = false; st.textContent = t; st.classList.toggle("error", !!err); };
-    $("#ce-msg").addEventListener("input", (e) => { e.target.dataset.tocado = "1"; });
-    f.addEventListener("submit", async (e) => {
+    /* «Contactanos» abre la ventana Escribinos con lo que buscaba (si no está, va al formulario de la portada) */
+    $("#ce-contacto").addEventListener("click", (e) => {
+      const esc = window.debraEscribinos, msg = $("#ct-msg"); if (!esc || !msg) return;
       e.preventDefault();
-      const d = new FormData(f);
-      if (String(d.get("nombre")).trim().length < 2) return say("Enter your name.", true);
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.get("email")).trim())) return say("Check your email: it should look like name@company.com.", true);
-      if (String(d.get("mensaje")).trim().length < 10) return say("Tell us a bit more (at least 10 characters).", true);
-      if (d.get("sitio_web") || Date.now() - +d.get("t0") < 3000) return say("Thank you! We received your inquiry and will contact you shortly.");
-      const btn = $('button[type="submit"]', f); btn.disabled = true; say("Sending…");
-      try {
-        const data = new URLSearchParams(d); data.set("pagina", location.href.split("#")[0] + " (search with no results)");
-        const j = await (await fetch(f.dataset.endpoint, { method: "POST", body: data })).json();
-        if (!j.ok) throw new Error();
-        say("Thank you! We received your inquiry and will contact you shortly.");
-        f.reset(); delete $("#ce-msg").dataset.tocado;
-      } catch {
-        say("We couldn't send your message. Please try again or contact us on WhatsApp.", true);
-      } finally { btn.disabled = false; }
+      const txt = q.value.trim();
+      if (txt && !msg.value.trim()) { msg.value = "Hello, I'm looking for: " + txt + ". "; msg.dispatchEvent(new Event("input", { bubbles: true })); }
+      esc.abrir("", e.currentTarget);
     });
   })();
 

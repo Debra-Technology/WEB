@@ -101,10 +101,8 @@
       if (!n) {
         const txt = q.value.trim();
         $("#ce-q").textContent = txt ? "«" + txt + "»" : "该产品";
-        const m = $("#ce-msg");
-        if (!m.dataset.tocado) m.value = txt ? "您好，我在寻找：" + txt + ". " : "";
-        $("#ce-prod").value = txt.slice(0, 300);
-        if (!$("#ce-t0").value) $("#ce-t0").value = Date.now();
+        const wa = $("#ce-wa"), u = new URL(wa.href);
+        u.search = txt ? "?text=" + encodeURIComponent("您好，我在寻找：" + txt + ".") : ""; wa.href = u;
       }
     }
     function irArriba() {
@@ -123,7 +121,6 @@
     // al buscar se busca en todas las familias
     q.addEventListener("input", () => { if (fam && q.value) { fam = ""; history.replaceState(null, "", location.pathname + location.search); } aplicar(); });
     q.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); q.blur(); irArriba(); } });
-    $("#cat-clear").addEventListener("click", () => { q.value = ""; mat = ""; elegir("", true); q.focus(); });
     orden.addEventListener("change", () => {
       const az = orden.value === "az";
       $$(".dc-grid", $(".cat-main")).forEach((g) => {
@@ -133,28 +130,13 @@
     elegir(location.hash.slice(1), false);
     window.addEventListener("hashchange", () => elegir(location.hash.slice(1), false));
 
-    /* Formulario de «no contamos con ese producto» (va a la misma planilla que el resto) */
-    const f = $("#ce-form"); if (!f) return;
-    const st = $("#ce-status");
-    const say = (t, err) => { st.hidden = false; st.textContent = t; st.classList.toggle("error", !!err); };
-    $("#ce-msg").addEventListener("input", (e) => { e.target.dataset.tocado = "1"; });
-    f.addEventListener("submit", async (e) => {
+    /* «Contactanos» abre la ventana Escribinos con lo que buscaba (si no está, va al formulario de la portada) */
+    $("#ce-contacto").addEventListener("click", (e) => {
+      const esc = window.debraEscribinos, msg = $("#ct-msg"); if (!esc || !msg) return;
       e.preventDefault();
-      const d = new FormData(f);
-      if (String(d.get("nombre")).trim().length < 2) return say("请填写您的姓名。", true);
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.get("email")).trim())) return say("请检查电子邮箱格式，应类似 nombre@empresa.com。", true);
-      if (String(d.get("mensaje")).trim().length < 10) return say("请再详细描述一些（至少 10 个字符）。", true);
-      if (d.get("sitio_web") || Date.now() - +d.get("t0") < 3000) return say("谢谢！我们已收到您的咨询，将尽快与您联系。");
-      const btn = $('button[type="submit"]', f); btn.disabled = true; say("正在发送…");
-      try {
-        const data = new URLSearchParams(d); data.set("pagina", location.href.split("#")[0] + " （搜索无结果）");
-        const j = await (await fetch(f.dataset.endpoint, { method: "POST", body: data })).json();
-        if (!j.ok) throw new Error();
-        say("谢谢！我们已收到您的咨询，将尽快与您联系。");
-        f.reset(); delete $("#ce-msg").dataset.tocado;
-      } catch {
-        say("消息未能发送。请重试，或通过 WhatsApp 联系我们。", true);
-      } finally { btn.disabled = false; }
+      const txt = q.value.trim();
+      if (txt && !msg.value.trim()) { msg.value = "您好，我在寻找：" + txt + ". "; msg.dispatchEvent(new Event("input", { bubbles: true })); }
+      esc.abrir("", e.currentTarget);
     });
   })();
 

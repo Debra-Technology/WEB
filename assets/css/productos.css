@@ -223,16 +223,13 @@
 .cat-empty { text-align: left; background: #fff; border: 1px solid var(--rule); border-left: 5px solid var(--yellow); border-radius: var(--radius); padding: 1.3rem 1.4rem; margin-top: 1.2rem; }
 .cat-empty p { margin: 0 0 .3rem; }
 .ce-titulo { font-size: 1.15rem; }
-.ce-form { margin-top: 1rem; display: grid; gap: .7rem; }
-.ce-form h3 { margin: 0; font-family: var(--f-head); font-weight: 700; text-transform: uppercase; font-size: 1.25rem; }
-.ce-form label { display: grid; gap: .25rem; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--gold); }
-.ce-form input, .ce-form textarea { font: inherit; font-size: 1rem; text-transform: none; letter-spacing: 0; color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; padding: .65rem .75rem; background: #fff; }
-.ce-form input:focus, .ce-form textarea:focus { outline: 2px solid var(--yellow); border-color: var(--yellow); }
-.ce-row { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
-.ce-act { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; }
-.ce-status { margin: 0; padding: .6rem .8rem; border-radius: 6px; background: #F6F1E8; }
-.ce-status.error { background: #FCE8E6; }
-.cat-empty .hp { position: absolute; left: -9999px; }
+.ce-sub { margin-top: .5rem !important; font-size: 1rem; color: var(--ink); }
+.ce-links { display: flex; align-items: center; gap: .8rem; margin-top: .5rem !important; }
+.ce-links a { font-weight: 700; color: #8A5A12; }
+.ce-sep { color: #B8C0C6; }
+.ce-links .ce-wa { display: inline-flex; color: #25D366; }
+.ce-wa svg { width: 28px; height: 28px; fill: currentColor; }
+.ce-wa:hover { color: #1DA851; }
 
 /* Celular y pantallas táctiles: la foto queda limpia y Ficha técnica + Cotizar van debajo del nombre */
 @media (hover: none), (max-width: 900px) {
@@ -255,7 +252,6 @@
   .cat-mats button { width: auto; margin: 0; min-height: 38px; padding: .3rem .8rem; border: 1px solid var(--rule); border-radius: 999px; background: #fff; font-size: .88rem; white-space: nowrap; gap: .4rem; }
   .cat-mats .ic { width: 16px; height: 16px; }
   .cat-mats em { display: none; }
-  .ce-row { grid-template-columns: 1fr; }
 }
 .dc-quick .dc-ft { display: none; }
 
