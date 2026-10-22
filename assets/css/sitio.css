@@ -26,10 +26,10 @@
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  color-scheme: light;
+  color-scheme: only light;
 }
 /* El sitio es blanco por diseño (el logo va sobre blanco): no cambia con el tema oscuro del sistema */
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: light; } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: only light; } }
 
 *, *::before, *::after { box-sizing: inherit; }
 html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); -webkit-text-size-adjust: 100%; }

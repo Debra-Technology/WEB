@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://debratechnology.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="only light">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
@@ -86,10 +87,10 @@
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  color-scheme: light;
+  color-scheme: only light;
 }
 /* El sitio es blanco por diseño (el logo va sobre blanco): no cambia con el tema oscuro del sistema */
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: light; } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: only light; } }
 
 *, *::before, *::after { box-sizing: inherit; }
 html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); -webkit-text-size-adjust: 100%; }
@@ -1255,7 +1256,7 @@ body { background: #fff; }
 :lang(zh) *, :lang(ja) * { letter-spacing: 0 !important; }
 :lang(zh) :is(h1, h2, h3), :lang(ja) :is(h1, h2, h3) { line-height: 1.25 !important; }   /* el espaciado de los títulos separa de más los caracteres */
 </style>
-<link rel="stylesheet" href="assets/css/escribinos.css?v=5c645101">
+<link rel="stylesheet" href="assets/css/escribinos.css?v=6dd7ab6c">
 <!-- idiomas -->
 <link rel="alternate" hreflang="es" href="https://debratechnology.com/">
 <link rel="alternate" hreflang="en" href="https://debratechnology.com/en/">
@@ -2068,6 +2069,6 @@ body { background: #fff; }
   });
 })();
 </script>
-<script src="assets/js/escribinos.js?v=5c645101" defer></script>
+<script src="assets/js/escribinos.js?v=6dd7ab6c" defer></script>
 </body>
 </html>
