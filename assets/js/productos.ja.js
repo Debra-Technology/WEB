@@ -15,34 +15,97 @@
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && d.open) { d.open = false; d.querySelector("summary").focus(); } });
   });
 
-  /* ---------- Catálogo: buscador, familias y orden (sin JS se ve todo y las familias llevan a cada sección) ---------- */
+  /* ---------- Catálogo: buscador, material, familias y orden (sin JS se ve todo y las familias llevan a cada sección) ---------- */
   (function () {
     const q = $("#cat-q"); if (!q) return;
-    const links = $$(".cat-fams [data-f]"), sel = $("#cat-sel"), orden = $("#cat-orden");
+    const links = $$(".cat-fams [data-f]"), mats = $$(".cat-mats [data-m]"), sel = $("#cat-sel"), orden = $("#cat-orden");
     const fams = $$(".cat-fam"), cards = $$(".cat-fam .dc"), status = $("#cat-status"), empty = $("#cat-empty");
     const total = cards.length;
-    const norm = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-    cards.forEach((c, i) => { c._i = i; c._t = c.querySelector(".dc-title").textContent.trim(); });
-    // se busca en el texto en español (data-s) y en lo que se ve en la tarjeta (sirve para las páginas traducidas)
-    cards.forEach((c) => { c._s = c.dataset.s + " " + norm(c.querySelector(".dc-info").textContent); });
-    let fam = "";
+    const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+    // «duchass», «duchas» y «ducha» son lo mismo: se sacan las s del final
+    const raiz = (p) => p.length > 3 ? p.replace(/(es|s)+$/, (m, x, i) => i >= 3 ? "" : m) : p;
 
+    // Palabras que la gente usa y no figuran tal cual en los productos
+    const SINONIMOS = {
+      inox: ["inoxidable"], acero: ["acero"], aisi: ["inoxidable"], "304": ["inoxidable"],
+      pintad: ["epoxi"], pintura: ["epoxi"], amarill: ["epoxi"], galvanizad: ["epoxi"], epoxy: ["epoxi"],
+      calefaccion: ["calefaccionada"], calefaccionad: ["calefaccionada"], calefactor: ["calefaccionada"], calentador: ["calefaccionada"],
+      calefact: ["calefaccionada"], heat: ["calefaccionada"], frio: ["calefaccionada", "frio"], nieve: ["calefaccionada"],
+      congela: ["anticongelante"], helad: ["anticongelante"], termic: ["calefaccionada", "termica"], montana: ["calefaccionada"],
+      tanke: ["tanque"], tank: ["tanque"], autonom: ["tanque"], portatil: ["tanque", "ruedas"], movil: ["ruedas"], rueda: ["ruedas"],
+      ojo: ["lavaojos"], lavaojo: ["lavaojos"], lavaoj: ["lavaojos"], ocular: ["lavaojos"], eyewash: ["lavaojos"],
+      regadera: ["ducha"], shower: ["ducha"], emergencia: ["ducha", "lavaojos"],
+      extintor: ["extintor"], matafuego: ["extintor"], extinguidor: ["extintor"], incendi: ["incendio", "antiincendio", "fuego"],
+      fuego: ["fuego", "incendio"], bombero: ["bomberos", "incendio"], humo: ["humo"], capucha: ["mascara"], mascarilla: ["mascara"],
+      frazada: ["manta"], hidrante: ["manguera"],
+      tacho: ["contenedor", "papelero"], basura: ["residuos", "papelero"], residuo: ["residuos"], cesto: ["papelero"],
+      papelera: ["papelero"], reciclaj: ["reciclado"], recicla: ["reciclado"],
+      derrame: ["derrame"], antiderrame: ["antiderrame"], aceite: ["aceites"], quimic: ["quimicos"], absorbente: ["absorbente"],
+      alarma: ["sirena", "baliza", "alarma"], luz: ["baliza"], sonora: ["sirena"],
+      repuesto: ["repuestos"], aspersor: ["aspersores"], valvula: ["valvula"], grifo: ["canilla"], pileta: ["canilla"],
+      pared: ["pared"], amurad: ["pared"], amurar: ["pared"], tapa: ["tapa"],
+    };
+    function opciones(p) {
+      const r = raiz(p), o = new Set([p, r]);
+      Object.keys(SINONIMOS).forEach((k) => { if (r.startsWith(k) && r.length - k.length <= 2 || k.startsWith(r) && r.length >= 4) SINONIMOS[k].forEach((s) => o.add(s)); });
+      return [...o];
+    }
+    // Errores de tipeo: «dicha», «lavajos», «calefacionada»
+    function cerca(a, b, max) {
+      if (Math.abs(a.length - b.length) > max) return false;
+      let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+      for (let i = 1; i <= a.length; i++) {
+        const cur = [i]; let min = i;
+        for (let j = 1; j <= b.length; j++) {
+          cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+          min = Math.min(min, cur[j]);
+        }
+        if (min > max) return false; prev = cur;
+      }
+      return prev[b.length] <= max;
+    }
+
+    cards.forEach((c, i) => { c._i = i; c._t = c.querySelector(".dc-title").textContent.trim(); c._m = (c.dataset.m || "").split(" "); });
+    // se busca en el texto en español (data-s) y en lo que se ve en la tarjeta (sirve para las páginas traducidas)
+    cards.forEach((c) => {
+      c._s = norm(c.dataset.s + " " + c.querySelector(".dc-info").textContent);
+      c._w = [...new Set(c._s.split(/[^a-z0-9]+/).filter((w) => w.length >= 4).map(raiz))];
+    });
+    function coincide(c, p) {
+      const o = opciones(p);
+      if (o.some((x) => c._s.includes(x))) return true;
+      const r = raiz(p); if (r.length < 4) return false;
+      const max = r.length <= 5 ? 1 : 2;
+      return c._w.some((w) => cerca(r, w, max) || w.length > r.length && cerca(r, w.slice(0, r.length), max));
+    }
+
+    let fam = "", mat = "";
     function aplicar() {
-      const palabras = norm(q.value).split(/\s+/).filter(Boolean);
+      // palabras sueltas como «de», «para» o «con» no filtran
+      const palabras = norm(q.value).split(/\s+/).filter((p) => p && !["de", "del", "la", "el", "los", "las", "para", "con", "y", "a", "un", "una", "en", "alta"].includes(p));
       let n = 0;
       fams.forEach((s) => {
         const enFam = !fam || s.dataset.fam === fam;
         let k = 0;
         $$(".dc", s).forEach((c) => {
-          const ok = enFam && palabras.every((p) => c._s.includes(p));
+          const ok = enFam && (!mat || c._m.includes(mat)) && palabras.every((p) => coincide(c, p));
           c.hidden = !ok; if (ok) k++;
         });
         s.hidden = k === 0; n += k;
       });
       links.forEach((l) => l.setAttribute("aria-current", String(l.dataset.f === fam)));
+      mats.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.m === mat)));
       sel.value = fam;
       status.textContent = `${total}件中${n}件の製品を表示`;
       empty.hidden = n > 0;
+      if (!n) {
+        const txt = q.value.trim();
+        $("#ce-q").textContent = txt ? "«" + txt + "»" : "その製品";
+        const m = $("#ce-msg");
+        if (!m.dataset.tocado) m.value = txt ? "こんにちは。探している製品：" + txt + ". " : "";
+        $("#ce-prod").value = txt.slice(0, 300);
+        if (!$("#ce-t0").value) $("#ce-t0").value = Date.now();
+      }
     }
     function irArriba() {
       // si ya se había bajado, vuelve al principio del listado
@@ -55,11 +118,12 @@
       aplicar(); if (scroll) irArriba();
     }
     links.forEach((l) => l.addEventListener("click", (e) => { e.preventDefault(); elegir(l.dataset.f, true); }));
+    mats.forEach((b) => b.addEventListener("click", () => { mat = b.dataset.m; aplicar(); irArriba(); }));
     sel.addEventListener("change", () => elegir(sel.value, true));
     // al buscar se busca en todas las familias
     q.addEventListener("input", () => { if (fam && q.value) { fam = ""; history.replaceState(null, "", location.pathname + location.search); } aplicar(); });
     q.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); q.blur(); irArriba(); } });
-    $("#cat-clear").addEventListener("click", () => { q.value = ""; elegir("", true); q.focus(); });
+    $("#cat-clear").addEventListener("click", () => { q.value = ""; mat = ""; elegir("", true); q.focus(); });
     orden.addEventListener("change", () => {
       const az = orden.value === "az";
       $$(".dc-grid", $(".cat-main")).forEach((g) => {
@@ -68,6 +132,30 @@
     });
     elegir(location.hash.slice(1), false);
     window.addEventListener("hashchange", () => elegir(location.hash.slice(1), false));
+
+    /* Formulario de «no contamos con ese producto» (va a la misma planilla que el resto) */
+    const f = $("#ce-form"); if (!f) return;
+    const st = $("#ce-status");
+    const say = (t, err) => { st.hidden = false; st.textContent = t; st.classList.toggle("error", !!err); };
+    $("#ce-msg").addEventListener("input", (e) => { e.target.dataset.tocado = "1"; });
+    f.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const d = new FormData(f);
+      if (String(d.get("nombre")).trim().length < 2) return say("お名前を入力してください。", true);
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.get("email")).trim())) return say("メールアドレスをご確認ください（例：nombre@empresa.com）。", true);
+      if (String(d.get("mensaje")).trim().length < 10) return say("もう少し詳しくご記入ください（10文字以上）。", true);
+      if (d.get("sitio_web") || Date.now() - +d.get("t0") < 3000) return say("ありがとうございます。お問い合わせを受け付けました。追って担当者よりご連絡いたします。");
+      const btn = $('button[type="submit"]', f); btn.disabled = true; say("送信中…");
+      try {
+        const data = new URLSearchParams(d); data.set("pagina", location.href.split("#")[0] + " （検索結果なし）");
+        const j = await (await fetch(f.dataset.endpoint, { method: "POST", body: data })).json();
+        if (!j.ok) throw new Error();
+        say("ありがとうございます。お問い合わせを受け付けました。追って担当者よりご連絡いたします。");
+        f.reset(); delete $("#ce-msg").dataset.tocado;
+      } catch {
+        say("メッセージを送信できませんでした。もう一度お試しいただくか、WhatsApp でお問い合わせください。", true);
+      } finally { btn.disabled = false; }
+    });
   })();
 
   /* ---------- Botón de WhatsApp: se corre hacia arriba mientras se ve el aviso de cookies ---------- */

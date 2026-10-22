@@ -20,9 +20,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/sitio.css?v=2056608e">
-<link rel="stylesheet" href="../assets/css/productos.css?v=2056608e">
-<link rel="stylesheet" href="../assets/css/escribinos.css?v=2056608e">
+<link rel="stylesheet" href="../assets/css/sitio.css?v=3ea59785">
+<link rel="stylesheet" href="../assets/css/productos.css?v=3ea59785">
+<link rel="stylesheet" href="../assets/css/escribinos.css?v=3ea59785">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -447,10 +447,20 @@
     <aside class="cat-side" aria-label="Buscar y filtrar">
       <div class="cat-box">
         <label class="visually-hidden" for="cat-q">Buscar productos</label>
-        <div class="cat-search"><svg aria-hidden="true"><use href="#i-search"/></svg><input id="cat-q" type="search" placeholder="Nombre o código…" autocomplete="off" enterkeyhint="search"></div>
+        <div class="cat-search"><svg aria-hidden="true"><use href="#i-search"/></svg><input id="cat-q" type="search" placeholder="Ej.: duchas, lavaojos, tanque…" autocomplete="off" enterkeyhint="search"></div>
         <label class="visually-hidden" for="cat-sel">Familia</label>
         <select class="cat-sel" id="cat-sel"><option value="">Todas las familias (48)</option><option value="duchas-lavaojos">Duchas lavaojos (6)</option><option value="calefaccionadas">Calefaccionadas (4)</option><option value="tanques-autonomos">Tanques autónomos (4)</option><option value="lavaojos">Lavaojos (8)</option><option value="adicionales-y-repuestos">Adicionales y repuestos (3)</option><option value="antiincendio">Antiincendio (5)</option><option value="control-de-derrames">Control de derrames (9)</option><option value="contenedores">Contenedores (9)</option></select>
       </div>
+      <nav class="cat-box cat-mats-box" aria-label="Filtrar por material">
+        <h2>Material</h2>
+        <ul class="cat-fams cat-mats">
+          <li><button type="button" data-m="" aria-pressed="true"><svg class="ic" aria-hidden="true"><use href="#i-all"/></svg>Todos<em>48</em></button></li>
+          <li><button type="button" data-m="inox" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-drop"/></svg>Acero inoxidable<em>10</em></button></li>
+          <li><button type="button" data-m="epoxi" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-drop"/></svg>Epoxi<em>9</em></button></li>
+          <li><button type="button" data-m="calef" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-thermo"/></svg>Calefaccionados<em>4</em></button></li>
+          <li><button type="button" data-m="tanques" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg>Tanques<em>4</em></button></li>
+        </ul>
+      </nav>
       <nav class="cat-box cat-fams-box" aria-label="Familias de productos">
         <h2>Familias</h2>
         <ul class="cat-fams">
@@ -480,7 +490,7 @@
 <section class="cat-fam" id="duchas-lavaojos" data-fam="duchas-lavaojos" aria-labelledby="t-duchas-lavaojos">
   <div class="dfam-head"><h2 id="t-duchas-lavaojos">Duchas lavaojos</h2><img src="../assets/img/productos/sin-fondo/dl11x-ducha-lavaojos-inoxidable.webp" width="189" height="500" loading="lazy" decoding="async" alt=""></div>
   <div class="dc-grid">
-<article class="dc" data-s="dl11e ducha lavaojos epoxi ducha lavaojos de acero galvanizado con pintura epoxi acero galvanizado con pintura epoxi amarilla. flor de ducha y bacha de acero inoxidable. lavaojos con accionamiento manual y a pedal. base autoportante. duchas lavaojos">
+<article class="dc" data-m="epoxi" data-s="dl11e ducha lavaojos epoxi ducha lavaojos de acero galvanizado con pintura epoxi acero galvanizado con pintura epoxi amarilla. flor de ducha y bacha de acero inoxidable. lavaojos con accionamiento manual y a pedal. base autoportante. duchas lavaojos">
   <span class="dc-tag">Destacado</span>
   <div class="dc-media">
     <img src="../assets/img/productos/dl11e-ducha-lavaojos-epoxi.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -493,9 +503,10 @@
     <p class="dc-code">DL11E</p>
     <h3 class="dc-title"><a href="dl11e-ducha-lavaojos-epoxi/">Ducha lavaojos epoxi</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dl11x ducha lavaojos inoxidable ducha lavaojos de acero inoxidable canos de acero inoxidable. flor de ducha y bacha pulidas a espejo. lavaojos con accionamiento manual y a pedal. base autoportante. duchas lavaojos">
+<article class="dc" data-m="inox" data-s="dl11x ducha lavaojos inoxidable ducha lavaojos de acero inoxidable canos de acero inoxidable. flor de ducha y bacha pulidas a espejo. lavaojos con accionamiento manual y a pedal. base autoportante. duchas lavaojos">
   <span class="dc-tag">Destacado</span>
   <div class="dc-media">
     <img src="../assets/img/productos/dl11x-ducha-lavaojos-inoxidable.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -508,9 +519,10 @@
     <p class="dc-code">DL11X</p>
     <h3 class="dc-title"><a href="dl11x-ducha-lavaojos-inoxidable/">Ducha lavaojos inoxidable</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dl11eco ducha lavaojos epoxi eco ducha lavaojos de acero galvanizado con pintura epoxi, linea economica acero galvanizado con pintura epoxi amarilla. flor de ducha y bacha de acero inoxidable. lavaojos con placa de empuje manual, sin pedal. base brida para fijar al piso. duchas lavaojos">
+<article class="dc" data-m="epoxi" data-s="dl11eco ducha lavaojos epoxi eco ducha lavaojos de acero galvanizado con pintura epoxi, linea economica acero galvanizado con pintura epoxi amarilla. flor de ducha y bacha de acero inoxidable. lavaojos con placa de empuje manual, sin pedal. base brida para fijar al piso. duchas lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dl11eco-ducha-lavaojos-epoxi-eco.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -523,9 +535,10 @@
     <p class="dc-code">DL11Eco</p>
     <h3 class="dc-title"><a href="dl11eco-ducha-lavaojos-epoxi-eco/">Ducha lavaojos epoxi Eco</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dl11xeco ducha lavaojos inoxidable eco ducha lavaojos de acero inoxidable, linea economica canos de acero inoxidable. flor de ducha y bacha de acero inoxidable 430. lavaojos con accionamiento manual, sin pedal. base brida para fijar al piso. duchas lavaojos">
+<article class="dc" data-m="inox" data-s="dl11xeco ducha lavaojos inoxidable eco ducha lavaojos de acero inoxidable, linea economica canos de acero inoxidable. flor de ducha y bacha de acero inoxidable 430. lavaojos con accionamiento manual, sin pedal. base brida para fijar al piso. duchas lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dl11xeco-ducha-lavaojos-inoxidable-eco.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -538,9 +551,10 @@
     <p class="dc-code">DL11XEco</p>
     <h3 class="dc-title"><a href="dl11xeco-ducha-lavaojos-inoxidable-eco/">Ducha lavaojos inoxidable Eco</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dl11et ducha lavaojos epoxi con tapa ducha lavaojos de acero galvanizado con pintura epoxi y tapa protectora acero galvanizado con pintura epoxi amarilla. lavaojos manual y a pedal con tapa de acero inoxidable que se abre sola al accionarlo. base autoportante. duchas lavaojos">
+<article class="dc" data-m="epoxi" data-s="dl11et ducha lavaojos epoxi con tapa ducha lavaojos de acero galvanizado con pintura epoxi y tapa protectora acero galvanizado con pintura epoxi amarilla. lavaojos manual y a pedal con tapa de acero inoxidable que se abre sola al accionarlo. base autoportante. duchas lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dl11et-ducha-lavaojos-epoxi-con-tapa.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -553,9 +567,10 @@
     <p class="dc-code">DL11ET</p>
     <h3 class="dc-title"><a href="dl11et-ducha-lavaojos-epoxi-con-tapa/">Ducha lavaojos epoxi con tapa</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dl11xt ducha lavaojos inoxidable con tapa ducha lavaojos de acero inoxidable con tapa protectora canos de acero inoxidable. lavaojos manual y a pedal con tapa de acero inoxidable que se abre sola al accionarlo. base autoportante. duchas lavaojos">
+<article class="dc" data-m="inox" data-s="dl11xt ducha lavaojos inoxidable con tapa ducha lavaojos de acero inoxidable con tapa protectora canos de acero inoxidable. lavaojos manual y a pedal con tapa de acero inoxidable que se abre sola al accionarlo. base autoportante. duchas lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dl11xt-ducha-lavaojos-inoxidable-con-tapa.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -568,6 +583,7 @@
     <p class="dc-code">DL11XT</p>
     <h3 class="dc-title"><a href="dl11xt-ducha-lavaojos-inoxidable-con-tapa/">Ducha lavaojos inoxidable con tapa</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
   </div>
@@ -575,7 +591,7 @@
 <section class="cat-fam" id="calefaccionadas" data-fam="calefaccionadas" aria-labelledby="t-calefaccionadas">
   <div class="dfam-head"><h2 id="t-calefaccionadas">Calefaccionadas</h2><img src="../assets/img/productos/sin-fondo/dl11x-heat-af-sb-ducha-lavaojos-sirena-baliza.webp" width="165" height="500" loading="lazy" decoding="async" alt=""></div>
   <div class="dc-grid">
-<article class="dc" data-s="dl11x.heat.af.sb ducha lavaojos calefaccionada con sirena y baliza ducha lavaojos de acero inoxidable, calefaccionada y anticongelante, con sirena y baliza ducha lavaojos de acero inoxidable 304l, calefaccionada y anticongelante, con sirena y baliza que se activan al usar el equipo para avisar al equipo de primeros auxilios. calefaccionadas">
+<article class="dc" data-m="inox calef" data-s="dl11x.heat.af.sb ducha lavaojos calefaccionada con sirena y baliza ducha lavaojos de acero inoxidable, calefaccionada y anticongelante, con sirena y baliza ducha lavaojos de acero inoxidable 304l, calefaccionada y anticongelante, con sirena y baliza que se activan al usar el equipo para avisar al equipo de primeros auxilios. calefaccionadas">
   <span class="dc-tag">Destacado</span>
   <div class="dc-media">
     <img src="../assets/img/productos/dl11x-heat-af-sb-ducha-lavaojos-sirena-baliza.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -588,9 +604,10 @@
     <p class="dc-code">DL11X.HEAT.AF.SB</p>
     <h3 class="dc-title"><a href="dl11x-heat-af-sb-ducha-lavaojos-sirena-baliza/">Ducha lavaojos calefaccionada con sirena y baliza</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dl11x.heat.af ducha lavaojos inox calefaccionada ducha lavaojos de acero inoxidable, calefaccionada y anticongelante ducha lavaojos de acero inoxidable 304l con cable calefactor, termostato y valvula anticongelante. evita que el agua se congele y que se rompan las canerias en zonas de bajas temperaturas. calefaccionadas">
+<article class="dc" data-m="inox calef" data-s="dl11x.heat.af ducha lavaojos inox calefaccionada ducha lavaojos de acero inoxidable, calefaccionada y anticongelante ducha lavaojos de acero inoxidable 304l con cable calefactor, termostato y valvula anticongelante. evita que el agua se congele y que se rompan las canerias en zonas de bajas temperaturas. calefaccionadas">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dl11x-heat-af-ducha-lavaojos-inox-calefaccionada.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -603,9 +620,10 @@
     <p class="dc-code">DL11X.HEAT.AF</p>
     <h3 class="dc-title"><a href="dl11x-heat-af-ducha-lavaojos-inox-calefaccionada/">Ducha lavaojos inox calefaccionada</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dl11e.heat.af ducha lavaojos epoxi calefaccionada ducha lavaojos de acero galvanizado con pintura epoxi, calefaccionada y anticongelante ducha lavaojos de acero galvanizado con pintura termo epoxi, cable calefactor, termostato y valvula anticongelante. evita que el agua se congele y que se rompan las canerias en zonas frias. calefaccionadas">
+<article class="dc" data-m="epoxi calef" data-s="dl11e.heat.af ducha lavaojos epoxi calefaccionada ducha lavaojos de acero galvanizado con pintura epoxi, calefaccionada y anticongelante ducha lavaojos de acero galvanizado con pintura termo epoxi, cable calefactor, termostato y valvula anticongelante. evita que el agua se congele y que se rompan las canerias en zonas frias. calefaccionadas">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dl11e-heat-af-ducha-lavaojos-epoxi-calefaccionada.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -618,9 +636,10 @@
     <p class="dc-code">DL11E.HEAT.AF</p>
     <h3 class="dc-title"><a href="dl11e-heat-af-ducha-lavaojos-epoxi-calefaccionada/">Ducha lavaojos epoxi calefaccionada</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dl11x.heat.af.atex ducha lavaojos inox calefaccionada para zona clasificada ducha lavaojos de acero inoxidable, calefaccionada y anticongelante, con componentes electricos para zona clasificada ducha lavaojos de acero inoxidable 304l con cable calefactor, termostato y valvula anticongelante. calefaccionadas">
+<article class="dc" data-m="inox calef" data-s="dl11x.heat.af.atex ducha lavaojos inox calefaccionada para zona clasificada ducha lavaojos de acero inoxidable, calefaccionada y anticongelante, con componentes electricos para zona clasificada ducha lavaojos de acero inoxidable 304l con cable calefactor, termostato y valvula anticongelante. calefaccionadas">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dl11x-heat-af-atex-ducha-lavaojos-inox-zona-clasificada.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -633,6 +652,7 @@
     <p class="dc-code">DL11X.HEAT.AF.ATEX</p>
     <h3 class="dc-title"><a href="dl11x-heat-af-atex-ducha-lavaojos-inox-zona-clasificada/">Ducha lavaojos inox calefaccionada para zona clasificada</a></h3>
     <p class="dc-norma" title="Diseñada según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
   </div>
@@ -640,7 +660,7 @@
 <section class="cat-fam" id="tanques-autonomos" data-fam="tanques-autonomos" aria-labelledby="t-tanques-autonomos">
   <div class="dfam-head"><h2 id="t-tanques-autonomos">Tanques autónomos</h2><img src="../assets/img/productos/sin-fondo/dltx100-dltx50-ducha-lavaojos-tanque-autonomo.webp" width="125" height="500" loading="lazy" decoding="async" alt=""></div>
   <div class="dc-grid">
-<article class="dc" data-s="dltx100 / dltx50 ducha lavaojos con tanque autonomo ducha lavaojos autonoma con tanque de acero inoxidable de 100 y 50 litros para lugares sin red de agua. tanque presurizado de acero inoxidable de 100 o 50 litros, lavaojos con placa de empuje y ducha de enjuague con tirador. tanques autonomos">
+<article class="dc" data-m="tanques" data-s="dltx100 / dltx50 ducha lavaojos con tanque autonomo ducha lavaojos autonoma con tanque de acero inoxidable de 100 y 50 litros para lugares sin red de agua. tanque presurizado de acero inoxidable de 100 o 50 litros, lavaojos con placa de empuje y ducha de enjuague con tirador. tanques autonomos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dltx100-dltx50-ducha-lavaojos-tanque-autonomo.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -653,9 +673,10 @@
     <p class="dc-code">DLTX100 / DLTX50</p>
     <h3 class="dc-title"><a href="dltx100-dltx50-ducha-lavaojos-tanque-autonomo/">Ducha lavaojos con tanque autónomo</a></h3>
     <p class="dc-norma" title="Lavaojos diseñado según ANSI/ISEA Z358.1-2014. La ducha del tanque es de enjuague complementario."><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="ldtx100 / ldtx50 lavaojos autonomo con duchador de mano lavaojos autonomo con tanque de acero inoxidable y duchador de mano, 100 y 50 litros para lugares sin red de agua. tanque presurizado de acero inoxidable de 100 o 50 litros, lavaojos con placa de empuje y duchador de mano con flexible. tanques autonomos">
+<article class="dc" data-m="tanques" data-s="ldtx100 / ldtx50 lavaojos autonomo con duchador de mano lavaojos autonomo con tanque de acero inoxidable y duchador de mano, 100 y 50 litros para lugares sin red de agua. tanque presurizado de acero inoxidable de 100 o 50 litros, lavaojos con placa de empuje y duchador de mano con flexible. tanques autonomos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/ldtx100-ldtx50-lavaojos-autonomo-duchador.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -668,9 +689,10 @@
     <p class="dc-code">LDTX100 / LDTX50</p>
     <h3 class="dc-title"><a href="ldtx100-ldtx50-lavaojos-autonomo-duchador/">Lavaojos autónomo con duchador de mano</a></h3>
     <p class="dc-norma" title="Lavaojos diseñado según ANSI/ISEA Z358.1-2014. El duchador de mano es un elemento complementario."><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dltc100 / dltc50 ducha lavaojos autonoma calefaccionada ducha lavaojos autonoma calefaccionada con tanque de acero inoxidable de 100 y 50 litros para lugares sin red de agua y con frio. tanque de acero inoxidable de 100 o 50 litros con resistencia electrica y manta termica que mantienen el agua lista para usar. tanques autonomos">
+<article class="dc" data-m="tanques" data-s="dltc100 / dltc50 ducha lavaojos autonoma calefaccionada ducha lavaojos autonoma calefaccionada con tanque de acero inoxidable de 100 y 50 litros para lugares sin red de agua y con frio. tanque de acero inoxidable de 100 o 50 litros con resistencia electrica y manta termica que mantienen el agua lista para usar. tanques autonomos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -683,9 +705,10 @@
     <p class="dc-code">DLTC100 / DLTC50</p>
     <h3 class="dc-title"><a href="dltc100-dltc50-ducha-lavaojos-autonoma-calefaccionada/">Ducha lavaojos autónoma calefaccionada</a></h3>
     <p class="dc-norma" title="Lavaojos diseñado según ANSI/ISEA Z358.1-2014. La ducha del tanque es de enjuague complementario."><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="dltcr100 / dltcr50 ducha lavaojos calefaccionada con ruedas ducha lavaojos autonoma calefaccionada con tanque de acero inoxidable y ruedas, 100 y 50 litros para lugares sin red de agua y con frio. tanque calefaccionado de acero inoxidable de 100 o 50 litros, con ruedas y manija para llevarlo hasta donde se necesita. tanques autonomos">
+<article class="dc" data-m="tanques" data-s="dltcr100 / dltcr50 ducha lavaojos calefaccionada con ruedas ducha lavaojos autonoma calefaccionada con tanque de acero inoxidable y ruedas, 100 y 50 litros para lugares sin red de agua y con frio. tanque calefaccionado de acero inoxidable de 100 o 50 litros, con ruedas y manija para llevarlo hasta donde se necesita. tanques autonomos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -698,6 +721,7 @@
     <p class="dc-code">DLTCR100 / DLTCR50</p>
     <h3 class="dc-title"><a href="dltcr100-dltcr50-ducha-lavaojos-calefaccionada-ruedas/">Ducha lavaojos calefaccionada con ruedas</a></h3>
     <p class="dc-norma" title="Lavaojos diseñado según ANSI/ISEA Z358.1-2014. La ducha del tanque es de enjuague complementario."><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
   </div>
@@ -705,7 +729,7 @@
 <section class="cat-fam" id="lavaojos" data-fam="lavaojos" aria-labelledby="t-lavaojos">
   <div class="dfam-head"><h2 id="t-lavaojos">Lavaojos</h2><img src="../assets/img/productos/sin-fondo/l11e-lavaojos-epoxi.webp" width="137" height="500" loading="lazy" decoding="async" alt=""></div>
   <div class="dc-grid">
-<article class="dc" data-s="l11e lavaojos epoxi lavaojos de pie de acero galvanizado con pintura epoxi acero galvanizado con pintura epoxi amarilla. bacha de acero inoxidable pulida a espejo. accionamiento manual y a pedal. base autoportante. lavaojos">
+<article class="dc" data-m="epoxi" data-s="l11e lavaojos epoxi lavaojos de pie de acero galvanizado con pintura epoxi acero galvanizado con pintura epoxi amarilla. bacha de acero inoxidable pulida a espejo. accionamiento manual y a pedal. base autoportante. lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/l11e-lavaojos-epoxi.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -718,9 +742,10 @@
     <p class="dc-code">L11E</p>
     <h3 class="dc-title"><a href="l11e-lavaojos-epoxi/">Lavaojos epoxi</a></h3>
     <p class="dc-norma" title="Diseñado según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="l11x lavaojos inoxidable lavaojos de pie de acero inoxidable canos de acero inoxidable 304l. bacha pulida a espejo de 240 mm. accionamiento manual y a pedal. base autoportante. lavaojos">
+<article class="dc" data-m="inox" data-s="l11x lavaojos inoxidable lavaojos de pie de acero inoxidable canos de acero inoxidable 304l. bacha pulida a espejo de 240 mm. accionamiento manual y a pedal. base autoportante. lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/l11x-lavaojos-inoxidable.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -733,9 +758,10 @@
     <p class="dc-code">L11X</p>
     <h3 class="dc-title"><a href="l11x-lavaojos-inoxidable/">Lavaojos inoxidable</a></h3>
     <p class="dc-norma" title="Diseñado según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="l11eco lavaojos epoxi eco lavaojos de emergencia en acero galvanizado con pintura epoxi linea eco lavaojos de acero galvanizado con pintura termo epoxi amarilla. bacha de acero inoxidable de 240 mm, accionamiento manual con placa de empuje y base con brida para fijar al piso. lavaojos">
+<article class="dc" data-m="epoxi" data-s="l11eco lavaojos epoxi eco lavaojos de emergencia en acero galvanizado con pintura epoxi linea eco lavaojos de acero galvanizado con pintura termo epoxi amarilla. bacha de acero inoxidable de 240 mm, accionamiento manual con placa de empuje y base con brida para fijar al piso. lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/l11eco-lavaojos-epoxi-eco.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -748,9 +774,10 @@
     <p class="dc-code">L11Eco</p>
     <h3 class="dc-title"><a href="l11eco-lavaojos-epoxi-eco/">Lavaojos epoxi Eco</a></h3>
     <p class="dc-norma" title="Diseñado según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="l11xeco lavaojos inox eco lavaojos de emergencia en acero inoxidable linea eco lavaojos con columna de acero inoxidable, bacha de acero inoxidable 430 de 240 mm, boquillas de bronce cromado y accionamiento manual. base con brida, sin pedal. lavaojos">
+<article class="dc" data-m="inox" data-s="l11xeco lavaojos inox eco lavaojos de emergencia en acero inoxidable linea eco lavaojos con columna de acero inoxidable, bacha de acero inoxidable 430 de 240 mm, boquillas de bronce cromado y accionamiento manual. base con brida, sin pedal. lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/l11xeco-lavaojos-inox-eco.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -763,9 +790,10 @@
     <p class="dc-code">L11XEco</p>
     <h3 class="dc-title"><a href="l11xeco-lavaojos-inox-eco/">Lavaojos inox Eco</a></h3>
     <p class="dc-norma" title="Diseñado según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="l11et lavaojos epoxi con tapa lavaojos de emergencia en acero galvanizado con pintura epoxi, con tapa lavaojos de acero galvanizado con pintura termo epoxi amarilla y bacha inoxidable 304 de 240 mm. doble accionamiento: placa manual y pedal. tapa inoxidable que se abre sola al accionar. base autoportante. lavaojos">
+<article class="dc" data-m="epoxi" data-s="l11et lavaojos epoxi con tapa lavaojos de emergencia en acero galvanizado con pintura epoxi, con tapa lavaojos de acero galvanizado con pintura termo epoxi amarilla y bacha inoxidable 304 de 240 mm. doble accionamiento: placa manual y pedal. tapa inoxidable que se abre sola al accionar. base autoportante. lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/l11et-lavaojos-epoxi-con-tapa.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -778,9 +806,10 @@
     <p class="dc-code">L11ET</p>
     <h3 class="dc-title"><a href="l11et-lavaojos-epoxi-con-tapa/">Lavaojos epoxi con tapa</a></h3>
     <p class="dc-norma" title="Diseñado según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="l11xt lavaojos inox con tapa lavaojos de emergencia en acero inoxidable, con tapa lavaojos de acero inoxidable con bacha inoxidable de 240 mm pulida a espejo. doble accionamiento: placa manual y pedal. tapa inoxidable que se abre sola al accionar. base autoportante. lavaojos">
+<article class="dc" data-m="inox" data-s="l11xt lavaojos inox con tapa lavaojos de emergencia en acero inoxidable, con tapa lavaojos de acero inoxidable con bacha inoxidable de 240 mm pulida a espejo. doble accionamiento: placa manual y pedal. tapa inoxidable que se abre sola al accionar. base autoportante. lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/l11xt-lavaojos-inox-con-tapa.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -793,9 +822,10 @@
     <p class="dc-code">L11XT</p>
     <h3 class="dc-title"><a href="l11xt-lavaojos-inox-con-tapa/">Lavaojos inox con tapa</a></h3>
     <p class="dc-norma" title="Diseñado según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="l11cf lavaojos para canilla con flexible lavaojos para canilla con flexible se conecta a una canilla existente con un adaptador desmontable y una valvula desviadora. la canilla se sigue usando normalmente. flexible de acero inoxidable de 1,5 o 2 m. lavaojos">
+<article class="dc" data-m="epoxi" data-s="l11cf lavaojos para canilla con flexible lavaojos para canilla con flexible se conecta a una canilla existente con un adaptador desmontable y una valvula desviadora. la canilla se sigue usando normalmente. flexible de acero inoxidable de 1,5 o 2 m. lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/l11cf-lavaojos-canilla-flexible.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -808,9 +838,10 @@
     <p class="dc-code">L11CF</p>
     <h3 class="dc-title"><a href="l11cf-lavaojos-canilla-flexible/">Lavaojos para canilla con flexible</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="lp11x / lp11e lavaojos de pared lavaojos de pared de acero inoxidable (lp11x) y de acero galvanizado con pintura epoxi (lp11e) lavaojos para amurar a la pared, sin base. lp11x de acero inoxidable y lp11e de acero galvanizado con pintura epoxi amarilla. bacha inoxidable de 240 mm y placa de empuje. lavaojos">
+<article class="dc" data-m="inox epoxi" data-s="lp11x / lp11e lavaojos de pared lavaojos de pared de acero inoxidable (lp11x) y de acero galvanizado con pintura epoxi (lp11e) lavaojos para amurar a la pared, sin base. lp11x de acero inoxidable y lp11e de acero galvanizado con pintura epoxi amarilla. bacha inoxidable de 240 mm y placa de empuje. lavaojos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/lp11x-lp11e-lavaojos-de-pared.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -823,6 +854,7 @@
     <p class="dc-code">LP11X / LP11E</p>
     <h3 class="dc-title"><a href="lp11x-lp11e-lavaojos-de-pared/">Lavaojos de pared</a></h3>
     <p class="dc-norma" title="Diseñado según ANSI/ISEA Z358.1-2014"><svg aria-hidden="true"><use href="#i-check"/></svg>ANSI Z358.1</p>
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
   </div>
@@ -830,7 +862,7 @@
 <section class="cat-fam" id="adicionales-y-repuestos" data-fam="adicionales-y-repuestos" aria-labelledby="t-adicionales-y-repuestos">
   <div class="dfam-head"><h2 id="t-adicionales-y-repuestos">Adicionales y repuestos</h2><img src="../assets/img/productos/sin-fondo/tapa-protectora-lavaojos.webp" width="476" height="500" loading="lazy" decoding="async" alt=""></div>
   <div class="dc-grid">
-<article class="dc" data-s="tapa protectora para lavaojos tapa protectora de acero inoxidable para lavaojos adicional de acero inoxidable que protege las boquillas del polvo y la suciedad. se abre sola al accionar el lavaojos. adicionales y repuestos">
+<article class="dc" data-m="" data-s="tapa protectora para lavaojos tapa protectora de acero inoxidable para lavaojos adicional de acero inoxidable que protege las boquillas del polvo y la suciedad. se abre sola al accionar el lavaojos. adicionales y repuestos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/tapa-protectora-lavaojos.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -843,9 +875,10 @@
     
     <h3 class="dc-title"><a href="tapa-protectora-lavaojos/">Tapa protectora para lavaojos</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="repuestos para duchas y lavaojos repuestos originales para duchas, lavaojos y tanques debra repuestos originales para mantener los equipos debra en condiciones: aspersores, valvulas, placas y pedales de accionamiento, bachas, tapas, manometros y senalizacion. adicionales y repuestos">
+<article class="dc" data-m="" data-s="repuestos para duchas y lavaojos repuestos originales para duchas, lavaojos y tanques debra repuestos originales para mantener los equipos debra en condiciones: aspersores, valvulas, placas y pedales de accionamiento, bachas, tapas, manometros y senalizacion. adicionales y repuestos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/repuestos-duchas-lavaojos.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -858,9 +891,10 @@
     
     <h3 class="dc-title"><a href="repuestos-duchas-lavaojos/">Repuestos para duchas y lavaojos</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="kit de alarma: sirena y baliza kit de alarma visual y sonora (sirena y baliza) sirena de 115 db y baliza led roja que se encienden al accionar la ducha o el lavaojos y avisan al personal cercano. funciona a 12 v, con fuente a 220 v incluida. adicionales y repuestos">
+<article class="dc" data-m="" data-s="kit de alarma: sirena y baliza kit de alarma visual y sonora (sirena y baliza) sirena de 115 db y baliza led roja que se encienden al accionar la ducha o el lavaojos y avisan al personal cercano. funciona a 12 v, con fuente a 220 v incluida. adicionales y repuestos">
   
   <div class="dc-media">
     <img src="../assets/img/productos/sb-kit-alarma-sirena-baliza.webp" width="1600" height="2000" class="con-fondo" loading="lazy" decoding="async" alt="">
@@ -873,6 +907,7 @@
     
     <h3 class="dc-title"><a href="sb-kit-alarma-sirena-baliza/">Kit de alarma: sirena y baliza</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
   </div>
@@ -880,7 +915,7 @@
 <section class="cat-fam" id="antiincendio" data-fam="antiincendio" aria-labelledby="t-antiincendio">
   <div class="dfam-head"><h2 id="t-antiincendio">Antiincendio</h2><img src="../assets/img/productos/df4-mascara-de-escape-antihumo.webp" width="778" height="1100" loading="lazy" decoding="async" alt=""></div>
   <div class="dc-grid">
-<article class="dc" data-s="df4 mascara de escape antihumo mascara de escape antihumo df4 capucha de escape para salir de un lugar con humo durante un incendio. tela con pvc ignifugo, visor antiempanante y filtro de oxiceramica. no sirve para combatir el fuego. antiincendio">
+<article class="dc" data-m="" data-s="df4 mascara de escape antihumo mascara de escape antihumo df4 capucha de escape para salir de un lugar con humo durante un incendio. tela con pvc ignifugo, visor antiempanante y filtro de oxiceramica. no sirve para combatir el fuego. antiincendio">
   
   <div class="dc-media">
     <img src="../assets/img/productos/df4-mascara-de-escape-antihumo.webp" width="778" height="1100" loading="lazy" decoding="async" alt="">
@@ -893,9 +928,10 @@
     <p class="dc-code">DF4</p>
     <h3 class="dc-title"><a href="df4-mascara-de-escape-antihumo/">Máscara de escape antihumo</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="manta ignifuga manta ignifuga manta de fibra de vidrio para sofocar fuegos pequenos en su inicio o envolver a una persona cuya ropa se prendio fuego. soporta 600 c en forma continua. antiincendio">
+<article class="dc" data-m="" data-s="manta ignifuga manta ignifuga manta de fibra de vidrio para sofocar fuegos pequenos en su inicio o envolver a una persona cuya ropa se prendio fuego. soporta 600 c en forma continua. antiincendio">
   
   <div class="dc-media">
     <img src="../assets/img/productos/manta-ignifuga.webp" width="778" height="1100" loading="lazy" decoding="async" alt="">
@@ -908,9 +944,10 @@
     
     <h3 class="dc-title"><a href="manta-ignifuga/">Manta ignífuga</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="minibombero aerosol extintor aerosol extintor de espuma minibombero aerosol extintor de espuma para fuegos de clase a, b, c y k. formato de mano para cocinas, vehiculos, oficinas y tableros. antiincendio">
+<article class="dc" data-m="" data-s="minibombero aerosol extintor aerosol extintor de espuma minibombero aerosol extintor de espuma para fuegos de clase a, b, c y k. formato de mano para cocinas, vehiculos, oficinas y tableros. antiincendio">
   
   <div class="dc-media">
     <img src="../assets/img/productos/minibombero-aerosol-extintor.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -923,9 +960,10 @@
     
     <h3 class="dc-title"><a href="minibombero-aerosol-extintor/">Minibombero · Aerosol extintor</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="armtex manguera para incendio manguera para incendio armtex manguera de uso intensivo para bomberos e industria: tejido sintetico sin costuras recubierto en caucho nitrilo y pvc. antiincendio">
+<article class="dc" data-m="" data-s="armtex manguera para incendio manguera para incendio armtex manguera de uso intensivo para bomberos e industria: tejido sintetico sin costuras recubierto en caucho nitrilo y pvc. antiincendio">
   
   <div class="dc-media">
     <span class="sin-foto"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg></span>
@@ -938,9 +976,10 @@
     
     <h3 class="dc-title"><a href="manguera-incendio-armtex/">Armtex · Manguera para incendio</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="ryljet manguera para incendio manguera para incendio ryljet manguera para hidrantes y gabinetes de edificios, comercios y estacionamientos. tejido sintetico sin costuras. antiincendio">
+<article class="dc" data-m="" data-s="ryljet manguera para incendio manguera para incendio ryljet manguera para hidrantes y gabinetes de edificios, comercios y estacionamientos. tejido sintetico sin costuras. antiincendio">
   
   <div class="dc-media">
     <span class="sin-foto"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg></span>
@@ -953,6 +992,7 @@
     
     <h3 class="dc-title"><a href="manguera-incendio-ryljet/">Ryljet · Manguera para incendio</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
   </div>
@@ -960,7 +1000,7 @@
 <section class="cat-fam" id="control-de-derrames" data-fam="control-de-derrames" aria-labelledby="t-control-de-derrames">
   <div class="dfam-head"><h2 id="t-control-de-derrames">Control de derrames</h2><img src="../assets/img/productos/pallet-antiderrame-4-tambores.webp" width="778" height="1100" loading="lazy" decoding="async" alt=""></div>
   <div class="dc-grid">
-<article class="dc" data-s="pallet antiderrame para 4 tambores pallet antiderrame para 4 tambores pallet de polietileno con rejilla metalica para hasta cuatro tambores de 200 l. retiene las perdidas y se mueve con zorra o autoelevador. control de derrames">
+<article class="dc" data-m="" data-s="pallet antiderrame para 4 tambores pallet antiderrame para 4 tambores pallet de polietileno con rejilla metalica para hasta cuatro tambores de 200 l. retiene las perdidas y se mueve con zorra o autoelevador. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/pallet-antiderrame-4-tambores.webp" width="778" height="1100" loading="lazy" decoding="async" alt="">
@@ -973,9 +1013,10 @@
     
     <h3 class="dc-title"><a href="pallet-antiderrame-4-tambores/">Pallet antiderrame para 4 tambores</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="bandeja antiderrame 120 l bandeja antiderrame 120 l bandeja de polietileno para apoyar dos tambores de 200 l o baldes con aceites o quimicos. retiene hasta 120 l de perdidas. control de derrames">
+<article class="dc" data-m="" data-s="bandeja antiderrame 120 l bandeja antiderrame 120 l bandeja de polietileno para apoyar dos tambores de 200 l o baldes con aceites o quimicos. retiene hasta 120 l de perdidas. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/bandeja-antiderrame-120-l.webp" width="778" height="1100" loading="lazy" decoding="async" alt="">
@@ -988,9 +1029,10 @@
     
     <h3 class="dc-title"><a href="bandeja-antiderrame-120-l/">Bandeja antiderrame 120 L</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="pallet antiderrame para 2 tambores pallet antiderrame para 2 tambores pallet plastico de una sola pieza para dos tambores. retiene hasta 215 l de perdidas, soporta 800 kg y se mueve con zorra o autoelevador. control de derrames">
+<article class="dc" data-m="" data-s="pallet antiderrame para 2 tambores pallet antiderrame para 2 tambores pallet plastico de una sola pieza para dos tambores. retiene hasta 215 l de perdidas, soporta 800 kg y se mueve con zorra o autoelevador. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/pallet-antiderrame-2-tambores.webp" width="778" height="1100" loading="lazy" decoding="async" alt="">
@@ -1003,9 +1045,10 @@
     
     <h3 class="dc-title"><a href="pallet-antiderrame-2-tambores/">Pallet antiderrame para 2 tambores</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="kit antiderrame 20 l kit antiderrame 20 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 20 l con manija. control de derrames">
+<article class="dc" data-m="" data-s="kit antiderrame 20 l kit antiderrame 20 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 20 l con manija. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/kit-antiderrame-20-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1018,9 +1061,10 @@
     
     <h3 class="dc-title"><a href="kit-antiderrame-20-l/">Kit antiderrame 20 L</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="kit antiderrame 50 l kit antiderrame 50 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 50 l con manijas. control de derrames">
+<article class="dc" data-m="" data-s="kit antiderrame 50 l kit antiderrame 50 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 50 l con manijas. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/kit-antiderrame-20-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1033,9 +1077,10 @@
     
     <h3 class="dc-title"><a href="kit-antiderrame-50-l/">Kit antiderrame 50 L</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="kit antiderrame 70 l kit antiderrame 70 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 70 l con manijas. control de derrames">
+<article class="dc" data-m="" data-s="kit antiderrame 70 l kit antiderrame 70 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 70 l con manijas. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/kit-antiderrame-20-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1048,9 +1093,10 @@
     
     <h3 class="dc-title"><a href="kit-antiderrame-70-l/">Kit antiderrame 70 L</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="kit antiderrame 100 l kit antiderrame 100 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 100 l con manijas. control de derrames">
+<article class="dc" data-m="" data-s="kit antiderrame 100 l kit antiderrame 100 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 100 l con manijas. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/kit-antiderrame-20-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1063,9 +1109,10 @@
     
     <h3 class="dc-title"><a href="kit-antiderrame-100-l/">Kit antiderrame 100 L</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="kit antiderrame 120 l kit antiderrame 120 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 120 l con ruedas. control de derrames">
+<article class="dc" data-m="" data-s="kit antiderrame 120 l kit antiderrame 120 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 120 l con ruedas. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/kit-antiderrame-20-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1078,9 +1125,10 @@
     
     <h3 class="dc-title"><a href="kit-antiderrame-120-l/">Kit antiderrame 120 L</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="kit antiderrame 240 l kit antiderrame 240 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 240 l con ruedas. control de derrames">
+<article class="dc" data-m="" data-s="kit antiderrame 240 l kit antiderrame 240 l absorbente granulado, barreras, panos y bolsas para contener y limpiar derrames de aceites o quimicos, en un contenedor de 240 l con ruedas. control de derrames">
   
   <div class="dc-media">
     <img src="../assets/img/productos/kit-antiderrame-20-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1093,6 +1141,7 @@
     
     <h3 class="dc-title"><a href="kit-antiderrame-240-l/">Kit antiderrame 240 L</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
   </div>
@@ -1100,7 +1149,7 @@
 <section class="cat-fam" id="contenedores" data-fam="contenedores" aria-labelledby="t-contenedores">
   <div class="dfam-head"><h2 id="t-contenedores">Contenedores</h2><img src="../assets/img/productos/carro-barrendero-120-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt=""></div>
   <div class="dc-grid">
-<article class="dc" data-s="carro barrendero cuba 120 l carro barrendero con cuba de 120 l carro de barrido con estructura de hierro pintado y cuba plastica de 120 l sobre ruedas. con portaherramientas para escobas, palas y cepillos. contenedores">
+<article class="dc" data-m="" data-s="carro barrendero cuba 120 l carro barrendero con cuba de 120 l carro de barrido con estructura de hierro pintado y cuba plastica de 120 l sobre ruedas. con portaherramientas para escobas, palas y cepillos. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/carro-barrendero-120-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1113,9 +1162,10 @@
     
     <h3 class="dc-title"><a href="carro-barrendero-120-l/">Carro barrendero · Cuba 120 L</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="papelero publico papelero publico papelero de polietileno de alta densidad con tapa capuchon, para plazas, veredas, plantas y predios. resiste rayos uv, frio y calor. contenedores">
+<article class="dc" data-m="" data-s="papelero publico papelero publico papelero de polietileno de alta densidad con tapa capuchon, para plazas, veredas, plantas y predios. resiste rayos uv, frio y calor. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/papelero-publico.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1128,9 +1178,10 @@
     
     <h3 class="dc-title"><a href="papelero-publico/">Papelero público</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="contenedor 120 l tapa rebatible contenedor de residuos de 120 l con tapa rebatible contenedor de polietileno de alta densidad con dos ruedas y tapa rebatible. resiste intemperie, rayos uv y productos de limpieza. se puede personalizar. contenedores">
+<article class="dc" data-m="" data-s="contenedor 120 l tapa rebatible contenedor de residuos de 120 l con tapa rebatible contenedor de polietileno de alta densidad con dos ruedas y tapa rebatible. resiste intemperie, rayos uv y productos de limpieza. se puede personalizar. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/contenedor-residuos-120-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1143,9 +1194,10 @@
     
     <h3 class="dc-title"><a href="contenedor-residuos-120-l/">Contenedor 120 L · Tapa rebatible</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="contenedor 240 l tapa rebatible contenedor de residuos de 240 l con tapa rebatible contenedor de polietileno de alta densidad con dos ruedas y tapa rebatible. resiste rayos uv, frio, calor y productos quimicos. 100 % reciclable. contenedores">
+<article class="dc" data-m="" data-s="contenedor 240 l tapa rebatible contenedor de residuos de 240 l con tapa rebatible contenedor de polietileno de alta densidad con dos ruedas y tapa rebatible. resiste rayos uv, frio, calor y productos quimicos. 100 % reciclable. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/contenedor-residuos-240-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1158,9 +1210,10 @@
     
     <h3 class="dc-title"><a href="contenedor-residuos-240-l/">Contenedor 240 L · Tapa rebatible</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="contenedor 360 l 2 ruedas contenedor de residuos de 360 l contenedor de polietileno de alta densidad virgen con dos ruedas y tapa. apto para camion recolector. se puede personalizar con impresion o serigrafia. contenedores">
+<article class="dc" data-m="" data-s="contenedor 360 l 2 ruedas contenedor de residuos de 360 l contenedor de polietileno de alta densidad virgen con dos ruedas y tapa. apto para camion recolector. se puede personalizar con impresion o serigrafia. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/contenedor-residuos-360-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1173,9 +1226,10 @@
     
     <h3 class="dc-title"><a href="contenedor-residuos-360-l/">Contenedor 360 L · 2 ruedas</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="contenedor 660 l 4 ruedas contenedor de residuos de 660 l contenedor de polietileno de alta densidad con cuatro ruedas giratorias de 200 mm y tapa. apto para vaciado con camion recolector. fabricacion alemana. contenedores">
+<article class="dc" data-m="" data-s="contenedor 660 l 4 ruedas contenedor de residuos de 660 l contenedor de polietileno de alta densidad con cuatro ruedas giratorias de 200 mm y tapa. apto para vaciado con camion recolector. fabricacion alemana. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/contenedor-residuos-660-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1188,9 +1242,10 @@
     
     <h3 class="dc-title"><a href="contenedor-residuos-660-l/">Contenedor 660 L · 4 ruedas</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="contenedor 770 l 4 ruedas contenedor de residuos de 770 l contenedor de polietileno de alta densidad con cuatro ruedas giratorias de 200 mm y tapa. apto para vaciado con camion recolector. partes metalicas galvanizadas. contenedores">
+<article class="dc" data-m="" data-s="contenedor 770 l 4 ruedas contenedor de residuos de 770 l contenedor de polietileno de alta densidad con cuatro ruedas giratorias de 200 mm y tapa. apto para vaciado con camion recolector. partes metalicas galvanizadas. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/contenedor-residuos-770-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1203,9 +1258,10 @@
     
     <h3 class="dc-title"><a href="contenedor-residuos-770-l/">Contenedor 770 L · 4 ruedas</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="contenedor 1100 l 4 ruedas contenedor de residuos de 1100 l contenedor aleman marca weber, con cuatro ruedas giratorias (dos con freno), tapa con bisagra y tapon de vaciado. apto para camion recolector. contenedores">
+<article class="dc" data-m="" data-s="contenedor 1100 l 4 ruedas contenedor de residuos de 1100 l contenedor aleman marca weber, con cuatro ruedas giratorias (dos con freno), tapa con bisagra y tapon de vaciado. apto para camion recolector. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/contenedor-residuos-1100-l.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1218,9 +1274,10 @@
     
     <h3 class="dc-title"><a href="contenedor-residuos-1100-l/">Contenedor 1100 L · 4 ruedas</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
-<article class="dc" data-s="campana de reciclado urbano campana de reciclado urbano campana para separar residuos en via publica, plantas y barrios. resistente a la intemperie, con bocas para separar hasta cuatro tipos de residuos. contenedores">
+<article class="dc" data-m="" data-s="campana de reciclado urbano campana de reciclado urbano campana para separar residuos en via publica, plantas y barrios. resistente a la intemperie, con bocas para separar hasta cuatro tipos de residuos. contenedores">
   
   <div class="dc-media">
     <img src="../assets/img/productos/campana-de-reciclado.webp" width="724" height="1024" loading="lazy" decoding="async" alt="">
@@ -1233,13 +1290,25 @@
     
     <h3 class="dc-title"><a href="campana-de-reciclado/">Campana de reciclado urbano</a></h3>
     
+    <p class="dc-ver" aria-hidden="true">Ver producto<svg><use href="#i-arrow"/></svg></p>
   </div>
 </article>
   </div>
 </section>
       <div class="cat-empty" id="cat-empty" hidden>
-        <p><strong>No encontramos productos con esa búsqueda.</strong> Probá con otra palabra o con el código, o escribinos y te ayudamos.</p>
-        <button class="btn-sm" type="button" id="cat-clear">Ver todos los productos</button>
+        <p class="ce-titulo"><strong>Lo sentimos, no contamos con <span id="ce-q">ese producto</span>.</strong></p>
+        <p>Igual podemos ayudarte: muchas veces lo conseguimos o lo fabricamos según tu necesidad.</p>
+        <form class="ce-form" id="ce-form" data-endpoint="https://script.google.com/macros/s/AKfycbyH_Ds6_7WyeImyydY69AL7UI3udwwtfwVX97PmX-ryd_ZWw5pGJMipYSEUYUAZzMn-ug/exec" novalidate>
+          <h3>Contanos cómo podemos ayudarte</h3>
+          <div class="ce-row"><label>Nombre *<input name="nombre" required maxlength="80" autocomplete="name"></label>
+          <label>E-mail *<input name="email" type="email" required maxlength="120" autocomplete="email"></label></div>
+          <label>Mensaje *<textarea name="mensaje" id="ce-msg" required maxlength="5000" rows="3"></textarea></label>
+          <input type="hidden" name="producto" id="ce-prod"><input type="hidden" name="t0" id="ce-t0">
+          <div class="hp" aria-hidden="true"><input name="sitio_web" tabindex="-1" autocomplete="off"></div>
+          <div class="ce-act"><button class="btn btn-yellow" type="submit">Enviar consulta</button>
+          <button class="btn-sm" type="button" id="cat-clear">Ver todos los productos</button></div>
+          <p class="ce-status" id="ce-status" role="status" hidden></p>
+        </form>
       </div>
       <aside class="cat-cta">
         <div><h2>¿No encontrás lo que buscás?</h2><p>Contanos las especificaciones que necesitás y buscamos la solución.</p></div>
@@ -1324,7 +1393,7 @@
   </div>
 </section>
 
-<script src="../assets/js/productos.js?v=2056608e" defer></script>
-<script src="../assets/js/escribinos.js?v=2056608e" defer></script>
+<script src="../assets/js/productos.js?v=3ea59785" defer></script>
+<script src="../assets/js/escribinos.js?v=3ea59785" defer></script>
 </body>
 </html>

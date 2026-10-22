@@ -1258,7 +1258,7 @@ body { background: #fff; }
 :lang(zh) *, :lang(ja) * { letter-spacing: 0 !important; }
 :lang(zh) :is(h1, h2, h3), :lang(ja) :is(h1, h2, h3) { line-height: 1.25 !important; }   /* el espaciado de los títulos separa de más los caracteres */
 </style>
-<link rel="stylesheet" href="../assets/css/escribinos.css?v=2056608e">
+<link rel="stylesheet" href="../assets/css/escribinos.css?v=3ea59785">
 <!-- idiomas -->
 <link rel="alternate" hreflang="es" href="https://debratechnology.com/">
 <link rel="alternate" hreflang="en" href="https://debratechnology.com/en/">
@@ -1436,7 +1436,7 @@ body { background: #fff; }
           <p class="hero-lead">産業現場の安全を守ります。ANSI Z358.1規格に適合した機器を、設置・保守・アフターサービスとともにご提供します。</p>
           <div class="hero-actions">
             <a class="btn btn-yellow" href="#contacto">見積依頼<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn-outline" href="#productos">製品を見る<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-outline" href="productos/">製品を見る<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
           <p class="equipo" aria-live="off">画像の機器：<strong id="equipo-model">DL11X.HEAT.AF.SB</strong>、<span id="equipo-name">サイレン・警告灯付きヒーター付き緊急シャワー・洗眼器</span>。 <button type="button" id="equipo-open">詳細を見る</button></p>
         </div>
@@ -1943,7 +1943,7 @@ body { background: #fff; }
   const form = $("#contact-form"), msg = $("#f-msg");
   $$("[data-cotizar]").forEach((b) => b.addEventListener("click", () => {
     // si viene con un mensaje empezado en otra página (ventana Escribinos), el producto se suma a ese mensaje
-    const esc = window.debraEscribinos; if (esc && esc.activo()) { esc.abrir(b.dataset.cotizar, b); return; }
+    const esc = window.debraEscribinos; if (esc) { esc.abrir(b.dataset.cotizar, b); return; }
     msg.value = "こんにちは。次のモデルの見積りをお願いします： " + b.dataset.cotizar + ". "; msg.dispatchEvent(new Event("input")); $("#f-producto").value = b.dataset.cotizar;
     $("#contacto").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     setTimeout(() => $("#f-name").focus({ preventScroll: true }), reduceMotion ? 0 : 600);
@@ -2069,6 +2069,6 @@ body { background: #fff; }
   });
 })();
 </script>
-<script src="../assets/js/escribinos.ja.js?v=2056608e" defer></script>
+<script src="../assets/js/escribinos.ja.js?v=3ea59785" defer></script>
 </body>
 </html>

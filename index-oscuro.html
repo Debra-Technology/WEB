@@ -1381,7 +1381,7 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
   .wa-float svg { width: 28px; height: 28px; }
 }
 </style>
-<link rel="stylesheet" href="assets/css/escribinos.css?v=2056608e">
+<link rel="stylesheet" href="assets/css/escribinos.css?v=3ea59785">
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -1542,7 +1542,7 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
           <p class="hero-lead">Seguridad en entornos industriales: equipos que cumplen la norma ANSI Z358.1, con instalación, mantenimiento y servicio post‑venta.</p>
           <div class="hero-actions">
             <a class="btn btn-yellow" href="#contacto">Pedir presupuesto<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn-outline" href="#productos">Ver productos<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-outline" href="productos/">Ver productos<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
           <p class="equipo" aria-live="off">Equipo en la imagen: <strong id="equipo-model">DL11X.HEAT.AF.SB</strong>, <span id="equipo-name">ducha lavaojos calefaccionada con sirena y baliza</span>. <button type="button" id="equipo-open">Ver detalles</button></p>
         </div>
@@ -2051,7 +2051,7 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
   const form = $("#contact-form"), msg = $("#f-msg");
   $$("[data-cotizar]").forEach((b) => b.addEventListener("click", () => {
     // si viene con un mensaje empezado en otra página (ventana Escribinos), el producto se suma a ese mensaje
-    const esc = window.debraEscribinos; if (esc && esc.activo()) { esc.abrir(b.dataset.cotizar, b); return; }
+    const esc = window.debraEscribinos; if (esc) { esc.abrir(b.dataset.cotizar, b); return; }
     msg.value = "Hola, quiero cotizar el modelo " + b.dataset.cotizar + ". "; msg.dispatchEvent(new Event("input")); $("#f-producto").value = b.dataset.cotizar;
     $("#contacto").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     setTimeout(() => $("#f-name").focus({ preventScroll: true }), reduceMotion ? 0 : 600);
@@ -2172,6 +2172,6 @@ html, body { background: var(--dk-bg); color: var(--dk-text); }
   const stored = read(); if (stored) applyConsent(stored); else banner.hidden = false;
 })();
 </script>
-<script src="assets/js/escribinos.js?v=2056608e" defer></script>
+<script src="assets/js/escribinos.js?v=3ea59785" defer></script>
 </body>
 </html>
